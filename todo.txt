@@ -1,0 +1,31 @@
+opm:
+load wp library
+kleur van header border bottom nt gevonden
+
+php change bg color png
+css refactren, alle paginas afprintbaar
+javascript berichten stylen
+
+
+
+
+titel op nieuws pag
+
+formulier in FF nt ok
+
+logo sociaalhuis ipv footer
+
+menu kleuren met die van wouter
+
+cancel button aan ajax formulieren
+foutmeldingen en succesmeldingen bij ajax
+idVereniging misschien weg bij ajax
+misschien required verwijderen uit de ajax formulieren
+focus in jquery weg bij de minimum validaties
+
+Ingeborg:  hoe richt je een organisatie op? accordion voor info vrijwilligers en verenigingen
+Op server: 1 bad behavior 2 seo 3. backwpup 4. anti hacking
+
+VerenigingSelectById werkt wellicht niet meer voor de forms intern
+
+

@@ -1,0 +1,50 @@
+.btnedit {
+	width: 50%;
+	padding: 0 3%;
+}
+
+.btndelete {
+	width: 34%;
+	padding: 0 3%;
+	margin-left: 1%;
+}
+
+.sh_bestvoornaam {
+	width: 16%;
+}
+
+.sh_bestnaam {
+	width: 16%;
+}
+
+.sh_bestfunctie {
+	width: 30%;
+}
+
+.sh_bestemail {
+	width: 22%;
+}
+
+.sh_actie {
+	width: 16%;
+}
+
+
+#fotoForm .controls {
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+
+#fotodivwis {
+	float:left;
+}
+
+#btnOrganisatieFotoDelete {
+	cursor: pointer;
+	height: 50px;
+	width: 50px;
+	background-image: url('http://localhost:8080/sociaalhuis/wp-content/themes/divi-child/icons/delete.jpg');
+}
+
