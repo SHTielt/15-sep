@@ -115,15 +115,8 @@ unset($_SESSION['fotoid']);
 </div><!--einde fotodiv-->
 <?php	
 }
-
-
-
 ?>
-
-
 </section>		
 </div> <!-- #content-area -->
 </div> <!-- .container -->
 </div> <!-- #main-content -->       
-<?php       
-?>

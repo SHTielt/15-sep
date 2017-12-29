@@ -100,7 +100,7 @@ jQuery(document).ready(function () {
                     }
         	};
               
-        xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/view/ajax.php?bestuurderid=" + bestuurderId, true); 
+        xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/bestuurder_as_cp.ajax.php?bestuurderid=" + bestuurderId, true); 
         xmlhttp.send();//noodzaakt get methode
         }
         else if(bestuurderId == 0)

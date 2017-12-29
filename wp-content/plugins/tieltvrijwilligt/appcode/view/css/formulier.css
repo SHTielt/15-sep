@@ -1,4 +1,3 @@
-
 .form-horizontal {
     //margin-left: 30%;/*50-20*/
     margin-top: 16px;
@@ -8,6 +7,7 @@
     border-color: #000;
     border-style: solid;
     border-width: 1px;
+    border-radius: 5px;
     padding-top: 16px;
 }
 
@@ -20,11 +20,10 @@
 .control-label {
     cursor: pointer;
     float: left;
-    width: 160px;
+    width: 15.72%;
     text-align: right;
     text-transform: uppercase;
     padding-top: 5px;
-    margin-bottom: 5px;
     margin-bottom: 5px;
     line-height: 20px;
     color: #333333;
@@ -33,11 +32,13 @@
 .controls {
      font-size: 14px;
      line-height: 20px;
-     margin-left: 180px;/*label zit in de linkermargin*/
+     //margin-left: 180px;/*label zit in de linkermargin*/
+     margin-left: 17.68%;
 }
 
 div.controls > input {
-    width: 206px;
+    //width: 400px;
+    width: 47.73%;
     padding: 4px 6px;
     vertical-align: middle;
     line-height: 20px;
@@ -51,6 +52,7 @@ div.controls > input {
 }
 
 .controls > textarea {
+	width: 90%;
     padding: 4px 6px;
     vertical-align: middle;
     line-height: 20px;
@@ -132,54 +134,26 @@ padding: 2px 0;
     height: 2em;
     width: 5em;
     cursor: pointer;
+    
+    border: 1px solid #cccccc;
+    border-color: #51a351 #51a351 #387038;
+    border-radius: 25px;
+    
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+    
+    color: #fff;
+    background-color: #427a42;
+}
+
+.btnsave:hover, .btnupdate:hover, .btncancel:hover {
+	background-color: #7fb956;
 }
 
 /*btndelete en btnedit staan in algemeen.css*/
 
 .sh_message {
 	color: #f00;
-}
-
-/*
-.sh_form_edit (
-//background-color: yellow;
-width: 40%;
-height: 2em;
-}
-*/
-
-/*fotoformulier*/
-#fileToUpload {
-	width: 90%;
-}
-
-/*organisatieformulier*/
-#sectorenfieldset {
-	width: 206px;
-    padding: 4px 6px;
-    vertical-align: middle;
-    line-height: 20px;
-    color: #555555;
-    background-color: #fff;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);/*inset: wekt indruk dat box achter canvas staat*/
-    transition: border linear 0.2s, box-shadow linear 0.2s;
-    
-}
-
-#websiteVereniging {
-	width: 250px;
-}
-
-#facebookVereniging {
-	width: 400px;
-}
-
-/*contactpersoon formulier*/
-#frmContactPersoon > div:first-child {
-	padding-bottom: 20px;
-	border-bottom: 1px solid #333333;
 }
 
 /*remove gap at top of page*/
@@ -194,20 +168,25 @@ div.et_pb_section {
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #909;
+    font-size: 12px;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
    color:    #909;
    opacity:  1;
+   font-size: 12px;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
    color:    #909;
    opacity:  1;
+   font-size: 12px;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
    color:    #909;
+   font-size: 12px;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
    color:    #909;
+   font-size: 12px;
 }
 
 
@@ -222,4 +201,252 @@ div.et_pb_section {
 .foutveld {
     background-color: #ff0;/*geel*/
 }
+
+
+
+
+
+
+/*1. account formulier*/
+#frmAccount .control-label {
+    width: 230px;
+}
+
+#frmAccount .controls {
+    margin-left: 250px;
+}
+
+#frmAccount .short, #frmAccount .bad, #frmAccount .mismatch, #frmAccount .good, #frmAccount .empty
+{
+	color: red;
+	margin-left: 250px;
+}
+
+#frmAccount .strong {
+	color: green;
+	margin-left: 250px;
+}
+
+
+/*2. profiel formulier*/
+#sectorenfieldset {
+	width: 206px;
+    padding: 4px 6px;
+    vertical-align: middle;
+    line-height: 20px;
+    color: #555555;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.75);/*inset: wekt indruk dat box achter canvas staat*/
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    
+}
+
+/*3. organisaties overzicht bestuur*/
+#bestTabel {
+	table-layout: fixed;
+}
+
+.entry-content .sh_bestvoornaam {
+	width: 16%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_bestnaam {
+	width: 20%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_bestfunctie, .entry-content .sh_bestemail {
+	width: 22%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_actie {
+	width: 20%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+div.entry-content tr td {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/*4. contactpersoon formulier*/
+#frmContactPersoon > div:first-child {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #333333;
+}
+
+/*5. organisaties overzicht contact*/
+#contTabel {
+	table-layout: fixed;
+}
+
+.entry-content .sh_contvoornaam {
+	//width: 16%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_contnaam {
+	//width: 20%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_contemail {
+	//width: 22%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/*6. fotoformulieren*/
+.post-229 #uploaddiv{
+	width: 50%;
+}
+
+.post-229 .control-label {
+	width: 40%;
+}
+
+.post-229 .controls {
+	margin-left: 50%;	
+}
+
+.post-229 .btndelete {
+    	width: 40%;
+    }
+
+#fileToUpload {
+	width: 90%;
+}
+
+
+
+
+/*DEFAULT SCREENS and TABLETS in LANDSCAPE*/
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+	
+	.control-label {
+    width: 25.72%;
+    }
+
+    .controls {
+    margin-left: 27.68%;
+    }
+
+    div.controls > input {
+    width: 57.73%;
+    }
+    
+    /*bestuurders gebruikt in organisaties*/
+    .entry-content .sh_actie {
+	width: 20%;
+	padding-left: 6px;
+	padding-right: 6px;
+    }
+    
+    
+    #fileToUpload {
+	width: 95%;
+    }
+    /*fotoformulier gebruikt in mijnorganisatie*/
+    div#uploaddiv {
+    width: 70%;
+    }
+            
+    /*fotoformulier gebruikt in organisaties.css*/
+    .post-229 #uploaddiv{
+	width: 50%;
+    }
+
+    .post-229 .control-label {
+	width: 47%;
+    }
+
+    .post-229 .controls {
+	margin-left: 50%;	
+    }
+    
+    
+
+} 
+/*end DEFAULTS SCREENS and TABLETS in LANDSCAPE*/
+
+
+
+/*SMARTPHONES and TABLETS in PORTRAIT*/
+
+@media screen and (max-width: 767px) {
+	.control-group > label {
+	display: block;
+    width: 100%;
+    float: none;
+    text-align: left;
+    }
+	
+	.control-group .controls {
+    display: block;
+    margin-left: 0;
+    }
+    
+    div.controls > input {
+    width: 90%;
+    }
+    
+    .controls > select {
+    max-width: 90%;
+	}
+	
+	/*profiel formulier*/
+    #sectorenfieldset {
+	max-width: 90%;
+    }
+    
+    #fileToUpload {
+	margin-left: 5%;
+    }
+    /*fotoformulier van mijn organisatie*/
+    div#uploaddiv {
+    width: 100%;
+    }
+        
+    #btnOrganisatieFotoSave {
+    	margin-left: 5%;
+    }
+    
+    /*fotoformulier gebruikt in organisaties.css*/
+    .post-229 #uploaddiv{
+	width: 90%;
+    }
+
+    .post-229 .control-label {
+	margin-left: 5%;
+	width: 100%;
+    }
+
+    #btnVerenigingFotoSave {
+    	margin-left: 5%;
+    }
+} 
+
+/*end SMARTPHONES and TABLETS in PORTRAIT*/
+
+
+
+/*SMALL SMARTPHONES*/
+
+@media screen and (max-width: 480px) {
+	
+} 
+
+/*end SMALL SMARTPHONES*/
+
  

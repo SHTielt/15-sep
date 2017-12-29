@@ -1,25 +1,20 @@
 <?php
 //overzicht van contact
 
- get_header();?>
-<?php
-//$_GET['verenigingid']) is nooit leeg want kan nt bereikt worden zonder URL met querystring
+ get_header();
+ 
+//$_GET['organisatieid']) is nooit leeg want kan nt bereikt worden zonder URL met querystring
 if(isset($_GET['organisatieid']))
 {
 	$contObject = new ContactPersoon();
-	$verenigingId = $_GET['organisatieid'];
-	$contact = $contObject->selectContactPersoonByVerenigingId($verenigingId);	
+	$orgId = $_GET['organisatieid'];
+	$contact = $contObject->selectContactPersoonByVerenigingId($orgId);	
 	//print_r($contact);
+    //naam van de vereniging ophalen
+	$verObject = new Vereniging();
+	$gezochteVer = $verObject->selectVerenigingById($orgId);	
 }
 
-?>
-
-<?php
-//naam van de vereniging ophalen
-$verObject = new Vereniging();
-$gezochteVer = $verObject->selectVerenigingById($verenigingId);
-
- 
 ?>
 <div id="overzichtContact">
 <div id="rodebalk" class="alert-info">
@@ -32,14 +27,14 @@ $gezochteVer = $verObject->selectVerenigingById($verenigingId);
 			<?php if(empty($contact))
 			{
 			?>
-			<a href="<?php echo "http://localhost:8080/sociaalhuis/organisatie-formulier-contactpersoon?organisatieid=".$_GET['organisatieid']; ?>" class="pull-left buttonadd">&nbsp;Contactpersoon toevoegen</a>
+			<a href="<?php echo "http://localhost:8080/sociaalhuis/organisatie-formulier-contactpersoon?organisatieid=".$_GET['organisatieid']; ?>" class="pull-left buttonadd" title="Contactpersoon toevoegen">&nbsp;Contactpersoon toevoegen</a>
 			<?php	
 			}
 			?>
             <a href="<?php echo "http://localhost:8080/sociaalhuis/organisatie-formulier-logo?organisatieid=".$_GET['organisatieid']; ?>" class="pull-right buttonadd" title="<?php echo "Naar logo/foto van ".$gezochteVer[0]['verNaam']; ?>">&nbsp;Naar logo/foto</a>
             
 </div>
-<table id="contactTabel">
+<table id="contTabel">
 <thead>
 <tr>
 <th class="sh_contvoornaam">Voornaam</th>	
@@ -78,10 +73,10 @@ foreach($contact as $contactPersoon)
 	
 <form method="post" action="<?php echo "http://localhost:8080/sociaalhuis/organisatie-formulier-contactpersoon?organisatieid=".$_GET['organisatieid'] ?>" class="sh_form_edit">
     <input name="contactPersoonId" value="<?php echo $i; ?>" type="hidden" />
-    <input name="verenigingId" value="<?php echo $verenigingId; ?>" type="hidden" />
-    <input type="submit" value="Editeer" class="btnedit" title="edit" /> 
+    <input name="verenigingId" value="<?php echo $orgId; ?>" type="hidden" />
+    <input type="submit" value="Editeer" class="btnedit" title="Contactpersoon editeren" /> 
 </form>
-<button id="<?php echo "contBtnDelete".$i?>" title="wis" class="btndelete">Wis</button>
+<button id="<?php echo "contBtnDelete".$i?>" title="Contactpersoon wissen" class="btndelete">Wis</button>
 
 </td>
 </tr>

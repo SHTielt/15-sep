@@ -14,6 +14,7 @@ require_once SH_PLUGIN_PATH.'appcode/model/vereniging.class.php';
 //1. foto toevoegen
 if(isset($_POST["btnOrganisatieFotoSave"]))
 {
+
 $bericht;
 $target_dir = "../view/fotouploads/";//map van originele foto's
 $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
@@ -24,8 +25,7 @@ $uploadOk = 1;
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 /*Note: $target_file en $target_file_name worden niet ingevuld bij delete*/
 
-//in productie is $_POST['idHiddenVereniging'] nooit nULL
-$orgId = $_POST['idOrganisatie'];
+$orgId = $_POST['idOrg'];
 		
 $thumbnail_dir = "../view/fotouploads/thumbs/";//map van thumbnail foto's
 $thumbnail_file = $thumbnail_dir.basename($_FILES["fileToUpload"]["name"]);
@@ -120,6 +120,4 @@ if(isset($_POST["btnOrganisatieFotoDelete"]))
     }
 
 }
-
-
 ?>

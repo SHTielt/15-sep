@@ -71,5 +71,4 @@ else
 </div> <!-- #content-area -->
 </div> <!-- .container -->
 </div> <!-- #main-content -->
-
 <?php get_footer(); ?>

@@ -1,31 +1,84 @@
-opm:
-load wp library
-kleur van header border bottom nt gevonden
-
 php change bg color png
+
+
 css refactren, alle paginas afprintbaar
 javascript berichten stylen
 
 
 
 
-titel op nieuws pag
+Ajaxformulieren: 1) foutmeldingen
+                 2) fotos (media selector wordpress)
+                 3) geen cleaninput; wel bij de gewone formulieren
+                 
 
-formulier in FF nt ok
 
-logo sociaalhuis ipv footer
 
-menu kleuren met die van wouter
 
-cancel button aan ajax formulieren
-foutmeldingen en succesmeldingen bij ajax
-idVereniging misschien weg bij ajax
-misschien required verwijderen uit de ajax formulieren
-focus in jquery weg bij de minimum validaties
+meerdere cursorisaties nodig na formvalidatie
+
+na aanmaak account zonder profiel account wissen
+
+
+
+
+
 
 Ingeborg:  hoe richt je een organisatie op? accordion voor info vrijwilligers en verenigingen
 Op server: 1 bad behavior 2 seo 3. backwpup 4. anti hacking
 
-VerenigingSelectById werkt wellicht niet meer voor de forms intern
+https
+mails verzenden
+diverse browsers testen
+html en css validatie
+
+
+
+ingebouwde ajax van WP gebruiken om bij wijzigen van de naam ve org in het profiel formulier de verwelkoming te updaten met de nieuwe naam; nu verschijnt de nieuwe naam pas na herladen vd pagina
+cleaninput vervangen door de wordpress sanitaties
+
+
+rexhterrand van ddl niet zichtbaar
+sommige logos te klein
+
+ruimte in view source op de easyhost server
+css grootte options of select op tablet en smartphone
+misschien eerst de vereiste invoeren dat een organisatie op inactief staat vooraleer deze te verwijderen
+
+overflow: hidden; harmoniseren - zowel inline als in bestand
+
+
+ctln of zelfhulpgroep kan gewist worden FKC! = foutmelding igv fkc
+kolomhoofding actief nt ok
+
+
+slechte functiebenaming voor besttabel en contabel in functies.php ?
+
+sidebar lijn weg uit page geen resultaten gevonden
+
+
+
+pagina organisatiedetails wissen
+contactvoorkeur wissen uit het ajaxformulier bestuursleden voor een organisatie en standaard op 1 zetten in de ajaxcontroller
+
+widget stylesheet kleur
+
+bericht: geen categorie wissen
+                      
+                      
+
+
+
+                      
+                      
+
+
+
+
+
+
+
+
+
 
 

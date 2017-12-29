@@ -67,6 +67,7 @@
    			{
        		echo '<div id="welcome_user">welkom '.$ingelogde_user->user_firstname.' '.$ingelogde_user->user_lastname.'</div>';
    			}
+			
    			?>
 			<?php if ( $et_contact_info_defined ) : ?>
 
@@ -269,6 +270,45 @@
 					<?php endif; // true === et_get_option( 'show_search_icon', false ) ?>
 
 					<?php do_action( 'et_header_top' ); ?>
+<!--zelf toegevoegd Mobile menu -->
+<!--
+<div class="mobile-nav" id="nav-main-mobile">
+    <div class="menu-btn-container">.
+     <div class="menu-btn" id="menu-btn">
+          <div></div>
+          <span></span>
+          <span></span>
+          <span></span>
+<span id="menu-text">MENU</span>
+     </div>
+    </div>
+  </div>.
+     <div class="responsive-menu">
+        <?php
+    $mobile_nav = array(
+        'theme_location'  => '',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => 'accomo',
+        'container_id'    => 'account-cont-mobile',
+        'menu_class'      => 'acmemo',
+        'menu_id'         => 'account-menu-mobile',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => ''
+    );
+        wp_nav_menu( $mobile_nav );
+        ?>
+     </div>
+</div>
+-->
+<!--einde custom code-->
 				</div> <!-- #et-top-navigation -->
 			</div> <!-- .container -->
 			<div class="et_search_outer">

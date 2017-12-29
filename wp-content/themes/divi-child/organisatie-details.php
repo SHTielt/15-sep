@@ -3,17 +3,28 @@
 //get functie
 function getFunctie($funcId)
 {
-	$funcObject = new Functie();
-	$result = $funcObject->selectFunctieById($funcId);
-	echo $result[0]['funcNaam'];
+	if(!empty($funcId)){
+		$funcObject = new Functie();
+		$result = $funcObject->selectFunctieById($funcId);
+		echo $result[0]['funcNaam'];	
+	}
+	else {
+		echo "";
+	}
 }
 
 //get contact voorkeur
 function getContactVoorkeur($cvId)
 {
-	$cvObject = new ContactVoorkeur();
-	$result = $cvObject->selectContactVoorkeurById($cvId);
-	echo $result[0]['cvVoorkeur'];
+	if(!empty($cvId)){
+		$cvObject = new ContactVoorkeur();
+		$result = $cvObject->selectContactVoorkeurById($cvId);
+		echo $result[0]['cvVoorkeur'];
+	}
+	else {
+		echo "";
+	}
+	
 }
 
 //get sector
@@ -34,8 +45,10 @@ function getRechtsVorm($cvId){
 if(isset($_POST['verenigingId']))
 {
 $verenigingId = $_POST['verenigingId'];
-//echo $verenigingId;
+echo $verenigingId;
 
+$slug = basename(the_permalink());
+echo $slug;
 
 $verObject = new Vereniging();
 $gezochteVereniging = $verObject->selectVerenigingbyId($verenigingId);
@@ -68,11 +81,11 @@ $versectoren = $versecObject->selectSectorenByVerenigingId($verenigingId);
 <h1 style="margin-top: 1em;"><?php echo $gezochteVereniging[0]['verNaam'];?></h1>
 
 <div id="omschrijving" style="text-align:justify;" class="onderdeel">
-<div id="imagediv" style="width: 250px; float:left; padding-right: 1em;">
+<div id="imagediv">
 <?php if(!empty($fotoNaam))
 {
 ?>
-<img src="<?php echo sprintf("http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/view/fotouploads/thumbs/%s",$fotoNaam); ?>" alt="<?php echo $fotoNaam;?>" title="<?php echo $vereniging['verNaam'];?>" />
+<img src="<?php echo sprintf("http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/view/fotouploads/thumbs/%s",$fotoNaam); ?>" alt="<?php echo $fotoNaam;?>" title="<?php echo $gezochteVereniging[0]['verNaam'];?>" />
 <?php
 }
 else {
@@ -86,11 +99,18 @@ else {
 
 <div id="werkingsgebied" class="onderdeel">
 <h3>Werkingsgebied</h3>	
-<?php echo $gezochteVereniging[0]['verWerkingsGebied'];?>
+<?php
+if(!empty($gezochteVereniging[0]['verWerkingsGebied']))
+{
+	echo $gezochteVereniging[0]['verWerkingsGebied'];
+}
+else {
+	echo "";
+}?>
 </div>
 
 <div id="contactpersoon" class="onderdeel">
-<h3 style="display: inline-block;">Contactpersoon</h3><span> voor nieuwe leden</span><br />
+<h3 style="display: inline-block;">Contactpersoon</h3><span> voor nieuwe leden / klanten</span><br />
 <?php
 if(!empty($contactPersoon))
 {
@@ -122,7 +142,8 @@ if(!empty($contactPersoon[0]['contNaam']))
 <?php
 }
 ?>
-<?php if(!empty($contactPersoon[0]['cvID']))
+<?php
+if(!empty($contactPersoon[0]['cvID']))
 {
 ?>
 <div><?php echo "Contact voorkeur: "; getContactVoorkeur($contactPersoon[0]['cvID']);?></div>
@@ -140,9 +161,10 @@ else {
 <?php if(!empty($bestuur))
 {
 ?>
+<button class="btntoggle">Toon bestuursleden</button>
 <table id="bestuursTabel">
 <thead>
-	<tr><th>Naam</th><th>Functie</th><th>E-mail adres</th><th>GSM</th><th>Telefoon</th><th>Contact voorkeur</th></tr>
+	<tr><th class="bsNaam">Naam</th><th class="bsFunctie">Functie</th><th class="bsEmail">E-mail adres</th><th class="bsGsm">GSM</th><th class="bsTelefoon">Telefoon</th></tr>
 </thead>
 <tbody>
     <?php
@@ -154,7 +176,6 @@ else {
     	<td><?php  echo htmlentities($bestuurder['bestEmail']); ?></td>
     	<td><?php  echo $bestuurder['bestGSM']; ?></td>
     	<td><?php  echo $bestuurder['bestTelefoon']; ?></td>
-    	<td><?php  getContactVoorkeur($bestuurder['cvID']); ?></td>
     </tr>
     <?php
         }//end foreach

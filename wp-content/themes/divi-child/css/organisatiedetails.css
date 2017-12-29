@@ -6,6 +6,12 @@ div.et_pb_section {
 	margin-bottom: 2em;
 }
 
+#imagediv {
+	width: 250px;
+	float: left;
+	padding-right: 1em;
+}
+
 #bestuursTabel, #bestuursTabel thead, #bestuursTabel tbody, #bestuursTabel tr, #bestuursTabel th, #bestuursTabel td {
 	border: 0;
 }
@@ -22,6 +28,32 @@ strong {
 	color: #333;
 }
 
+.bsNaam {
+	width: 25%;
+}
+
+.bsFunctie {
+	width: 20%;
+}
+
+.bsEmail {
+	width: 25%;
+}
+
+.bsGsm {
+	width: 15%;
+}
+
+.bsTelefoon {
+	width: 15%;
+}
+
+/*
+.bsCV {
+	width:19%;
+}
+*/
+
 #contactpersoon {
 	margin-bottom: 1em;
 }
@@ -30,4 +62,139 @@ strong {
 	text-align: center;
 }
 
+.btntoggle {
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+    margin-right: 1em;
+    
+    background-color: #427a42;
+    
+    border: 1px solid #cccccc;
+    border-bottom-color: #b3b3b3;
+    border-radius: 25px;
+    
+    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);/*h-shadow, v-shadow, blur, color*/
+}
 
+.btntoggle:hover {
+     color: #fff;
+     background-color: #7fb956;
+}
+
+
+/*DEFAULT SCREENS and TABLETS in LANDSCAPE*/
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+	
+	
+	#bestuursTabel {
+		table-layout: fixed;
+    	width: 100%;
+    }
+    
+    #bestuursTabel th {
+    	padding: 9px 0;
+    }
+    
+    #bestuursTabel td {
+    	padding: 6px 0;
+    }
+    
+}
+
+/*SMARTPHONES and TABLETS in PORTRAIT*/
+
+@media screen and (max-width: 767px) {
+	
+    #bestuursTabel {
+    	table-layout: fixed;
+    	width: 100%;
+    }
+    
+/*1. Force table to not be like table anymore */
+	#bestuursTabel * {
+		display: block;
+	}
+	
+/*2. Hide table headers (but not display: none;, for accessibility) */
+	#bestuursTabel thead  { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+/*3. rijen onderscheiden*/
+	table#bestuursTabel tr { border: 1px solid #ccc; }
+	
+/*4. cellen onderscheiden*/
+	table#bestuursTabel td { 
+	height: 25px;
+	border: none;
+	border-bottom: 1px solid #eee; 
+	padding-left: 37%; 
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	}
+	
+  /*5. ruimte scheppen voor cellen*/
+	#bestuursTabel td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		//top: 6px;
+		left: 6px;
+		width: 22%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		//background-color: yellow;
+	}
+	
+   /*6. Label de data*/
+	#bestuursTabel td:nth-of-type(1):before { content: "Naam"; }
+	#bestuursTabel td:nth-of-type(2):before { content: "Functie"; }
+	#bestuursTabel td:nth-of-type(3):before { content: "E-mail adres"; }
+	#bestuursTabel td:nth-of-type(4):before { content: "GSM"; }
+	#bestuursTabel td:nth-of-type(5):before { content: "Telefoon"; }
+	//#bestuursTabel td:nth-of-type(6):before { content: "Contact voorkeur"; overflow-x: hidden;}
+	
+	
+}
+
+/*SMALL SMARTPHONES*/
+
+@media screen and (max-width: 480px) {
+		
+	div#imagediv {
+		float: none;
+		width: 100%;
+		padding-right: 0;
+	}
+	
+	#imagediv img {
+		max-height: 200px;
+	}
+	
+	table#bestuursTabel td { 
+		overflow-x: hidden;
+	}
+	
+} 
+
+/*end SMALL SMARTPHONES*/
+
+/*5:4 SCREENS*/
+
+@media only screen and (max-width: 1280px) and (max-height: 1024px) { 
+	
+	
+} 

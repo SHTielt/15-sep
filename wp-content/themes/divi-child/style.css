@@ -12,6 +12,18 @@ Website: Sociaal Huis
 
 /*HEADER*/
 
+div#top-header {
+background: #d1503b; /* For browsers that do not support gradients */
+background: -webkit-linear-gradient(#d1503b 97%,  #fff); /* For Safari 5.1 to 6.0 */
+background: -o-linear-gradient(#d1503b 97%,  #fff); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(#d1503b 97%,  #fff); /* For Firefox 3.6 to 15 */
+background: linear-gradient(#d1503b 97%,  #fff); /* Standard syntax */
+}
+
+#top-header a:hover {
+	text-decoration: none;
+}
+
 .account_class {
     float: left;
 }
@@ -23,9 +35,19 @@ Website: Sociaal Huis
 #menu-account-menu li {
     position: relative;
     text-align: right;
-    margin-right: 15px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    border-right: 1px solid #fff;
     display: inline-block;
     word-wrap: break-word;
+}
+
+#menu-account-menu li:last-child {
+	border-right: 0;
+}
+
+#menu-account-menu > li > a {
+	text-transform: uppercase;
 }
 
 #menu-account-menu > li > a:hover {
@@ -35,8 +57,26 @@ Website: Sociaal Huis
     transition: all 0.4s ease-in-out;
 }
 
-#et-secondary-menu > ul > li a, #menu-account-menu > li > a {
+#et-secondary-nav {
+	padding-bottom: 0.75em;
+}
+
+#et-secondary-nav > li {
+	padding-left: 7.5px;
+    padding-right: 7.5px;
+    margin-right: 0;
+    border-left: 1px solid #fff;
+}
+
+#et-secondary-nav > li:first-child {
+    border-left: 0;
+}
+
+
+#et-secondary-menu > ul > li a {
     text-transform: uppercase;
+    padding-bottom: 0;
+   
 }
 
 #welcome_user {
@@ -53,16 +93,34 @@ Website: Sociaal Huis
 	padding: 10px 0;
 }
 
+#top-menu a {
+text-shadow: 0 -0.25px 0 rgba(51,51,51,0.3);
+}
+
+#top-header a, #welcome_user {
+text-shadow: 0 -0.5px 0 rgba(255,255,255,0.3);
+}
+
+#et_top_search {
+	display: none;
+}
+
 /*BODY*/
 
 #main-content {
-	min-height: 600px;
+	min-height: 800px;
 }
 
-a.sh:hover {
+#main-content div.container {
+	padding-top: 27px;
+}
+
+/*
+a:hover {
 	color: #0000ff;
 	text-decoration: underline;
 }
+*/
 
 #wetgevingmenu {
 	list-style-type: none;
@@ -72,7 +130,6 @@ a.sh:hover {
 #wetgevingmenu li {
 	display: inline-block;
 	padding: 0 0.5em;
-	
 }
 
 #wetgevingmenu li:first-child {
@@ -80,10 +137,8 @@ a.sh:hover {
 	border-right: solid 1px #000;
 }
 
-
-
 #vrijwilligerswerk, #vrijwilligersloket {
-	width: 1080px;
+	width: 100%;
 	margin: 0 auto 1em auto;
 }
 
@@ -100,24 +155,54 @@ a.sh:hover {
 
 
 
+
+
 /*FOOTER*/
 
-#footer-bottom {
-	background-color: #fff;
+div#footer-bottom {
+	background: #80b5ce; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#fff, #80b5ce); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#fff, #80b5ce); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#fff, #80b5ce); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#fff, #80b5ce); /* Standard syntax (must be last) */
 	border-top: 1px solid #ddd;
+	//height: 99.6px;
+	color: #333;
 }
+
+.column { display:inline-block; float:left; margin-right:5%; }
+
+.col2 { width:45%; }
 
 /*SIDEBAR*/
 
 
+/*CATEGORIEEN van PAGINAS*/
+/*zoniet grijze kleur onder sectie*/
+.category-adminpagina .et_pb_section {
+	min-height: 800px;
+}
+
+/*zoniet grijze kleur onder sectie*/
+.category-orgdetails .et_pb_section {
+	min-height: 800px;
+}
+
+.category-algemeen .et_pb_section {
+	min-height: 800px;
+}
 
 /*PAGES*/
+/*1. login page*/
+.tml .tml-action-links a:hover {
+	text-decoration: underline;
+}
 
 
-
-/*home page*/
+/*2. home page*/
 #post-4 .et_pb_section {
 	padding: 0;
+	min-height: 0;
 }
 
 #post-4 .et_pb_section_2 .et_pb_row {
@@ -137,7 +222,17 @@ a.sh:hover {
 	border: 0;
 }
 
-/*wetgeving page*/
+#post-4 a:hover {
+	color: #0000ff;
+	text-decoration: underline;
+}
+
+/*3. wetgeving page*/
+#post-150 ul.et_pb_tabs_controls li {
+	background-color: #7fb956;
+	background-color: #80b5ce;
+}
+
 #post-150 .et_pb_section {
 	padding: 0;
 }
@@ -146,30 +241,46 @@ a.sh:hover {
 	padding-bottom: 2.7px;
 }
 
-/*tieltse verenigingen*/
+#post-150 a:hover {
+	color: #0000ff;
+	text-decoration: underline;
+}
+
+/*4. tieltse organisaties*/
 #post-152 .et_pb_section {
 	padding: 0;
 }
 
-/*ik zoek vrijwilligerswerk*/
+#post-152 a:hover {
+	color: #0000ff;
+	text-decoration: underline;
+}
+
+/*5. ik zoek vrijwilligerswerk*/
 #post-16 .et_pb_section {
 	padding: 0;
 }
 
-/*ik zoek vrijwilligers*/
+/*6. ik zoek vrijwilligers*/
 #post-134 .et_pb_section {
 	padding: 0;
 }
 
-/*FAQ*/
+#post-134 a:hover {
+	color: #0000ff;
+	text-decoration: underline;
+}
+
+/*7. FAQ*/
 #post-147 .et_pb_section {
 	padding: 0;
 }
 
 
-/*contact page*/
+/*8. contact page*/
 #post-8 .et_pb_section {
 	padding: 0;
+	background-color: #fff;
 }
 
 .wpcf7-form input:not([type=submit]), .wpcf7-form textarea {
@@ -190,35 +301,63 @@ input.wpcf7-form-control.wpcf7-submit {
     box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
 	cursor: pointer;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	
-	
 }
 
 input.wpcf7-form-control.wpcf7-submit:hover{
 	opacity: 0.75;
 }
 
-/*blog*/
+/*9. blog*/
 .blog article {
 	text-align: justify;
 }
 
-
+/*10. mijn organisatie*/
+.post-409 .et_pb_section {
+	min-height: 800px;
+}
 
 
 /*DEFAULT SCREENS and TABLETS in LANDSCAPE*/
 
-@media screen and (max-width: 1024px) and (min-width: 768px) and (orientation: landscape){} 
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+	
+	.wpcf7-form input:not([type=submit]), .wpcf7-form textarea {
+	width: 75%;
+	border-radius: 1px;
+	box-shadow: 1px 1px 1px #888;
+}
 
-
-
+} 
 /*end DEFAULTS SCREENS and TABLETS in LANDSCAPE*/
 
 
 
 /*SMARTPHONES and TABLETS in PORTRAIT*/
 
-@media screen and (max-width: 800px) {} 
+@media screen and (max-width: 767px) {
+	/*contact pagina*/
+	.wpcf7-form input:not([type=submit]), .wpcf7-form textarea {
+	width: 100%;
+	border-radius: 1px;
+	box-shadow: 1px 1px 1px #888;
+	}
+	
+	#footer-bottom .column {
+		display: block;
+		margin-left: 5%;
+		margin-right: 5%;
+		float: none;
+	}
+	
+	#footer-bottom .col2 {
+		width: 90%;
+	}
+	
+	#footer-bottom img {
+		max-width: 80%;
+	}
+} 
 
 /*end SMARTPHONES and TABLETS in PORTRAIT*/
 
@@ -226,7 +365,10 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 
 /*SMALL SMARTPHONES*/
 
-@media screen and (max-width: 480px) {} 
+@media screen and (max-width: 480px) {
+	
+	
+} 
 
 /*end SMALL SMARTPHONES*/
 

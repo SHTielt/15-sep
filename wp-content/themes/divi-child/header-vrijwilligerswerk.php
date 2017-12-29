@@ -31,7 +31,7 @@
 	</script>
 
 	<?php wp_head(); ?>
-	<script src="https://cdn.vrijwilligerswerk.be/0617ef79-f75f-427b-8994-f3ee2c1a6407/search/v1/widget.js?t=20170811113234" defer></script>
+	<script src="https://cdn.vrijwilligerswerk.be/8a61390f-8650-4153-94c5-cebf07f63510/search/v1/widget.js?t=20171207112735" defer></script>
 </head>
 <body <?php body_class(); ?>>
 	<div id="page-container">

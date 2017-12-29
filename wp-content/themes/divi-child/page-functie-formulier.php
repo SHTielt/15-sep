@@ -33,7 +33,7 @@ else
             
             <div class="control-group">
                   <label for="infoFunctie" class="control-label">EXTRA INFO:</label>
-                  <div class="controls"><textarea id="infoFunctie" name="infoFunctie" rows="5" cols="40" placeholder="max 255 karakters" style="resize: none"><?php if(isset($result)) {echo $result[0]['funcInfo'];} ?></textarea></div>
+                  <div class="controls"><textarea id="infoFunctie" name="infoFunctie" rows="5" placeholder="max 255 karakters" style="resize: none"><?php if(isset($result)) {echo $result[0]['funcInfo'];} ?></textarea></div>
             </div>
                         
             

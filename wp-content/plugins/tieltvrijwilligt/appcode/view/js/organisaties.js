@@ -129,7 +129,7 @@
                 });
                 */
 
-                var r = confirm("Bent u zeker om deze vereniging en zijn sectoren, bestuursleden en foto/logo te verwijderen?");
+                var r = confirm("Bent u zeker om deze organisatie en bijhorend account, bestuursleden, contactpersoon en foto/logo te verwijderen?");
                 if(r == true)
                 {
                     window.location.href = 'http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/organisatiebeschrijving.control.php?organisatieid=' + id;

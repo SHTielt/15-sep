@@ -10,6 +10,7 @@ CREATE TABLE `sh_verenigingen` (
   `verFacebook` varchar(255) CHARACTER SET utf8 NULL,
   `verBeschrijving` varchar(50) CHARACTER SET utf8 NULL,
   `verActief` TINYINT(1),
+  `verSlug` varchar(255) CHARACTER SET utf8 NULL,
   `verWPUserID` int(11) NOT NULL,
   `rvID` int(11) NULL,
   PRIMARY KEY (`verId`),

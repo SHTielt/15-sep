@@ -321,10 +321,4 @@ if (isset($_GET['contactpersoonid']))
         header('Location: http://localhost:8080/sociaalhuis/gefaald');
     }
 }
-
-
-	 
-
-
 ?>
-

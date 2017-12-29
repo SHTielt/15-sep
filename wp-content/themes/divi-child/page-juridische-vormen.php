@@ -1,5 +1,4 @@
 <?php get_header();?>
-
 <div id="main-content">
 <div class="container">
 <div id="content-area" class="clearfix">
@@ -50,5 +49,4 @@ foreach($rechtsVormen as $rechtsVorm)
 </div> <!-- #content-area -->
 </div> <!-- .container -->
 </div> <!-- #main-content -->
-
 <?php get_footer(); ?>

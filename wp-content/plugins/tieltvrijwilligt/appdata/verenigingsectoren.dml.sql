@@ -1,4 +1,4 @@
-insert into sh_verenigingsectoren(vrdwID, vrID, dwID, vrdwInfo) values(1, 1, 1, NULL);
+insert into sh_verenigingsectoren(verID, secID) values(2, 3);
 
 
 USE sociaalhuis;
@@ -83,7 +83,8 @@ CREATE PROCEDURE `FilterVerenigingenBySectorId`
 )
 BEGIN
 SELECT * from sh_verenigingsectoren, sh_verenigingen
-where sh_verenigingen.verID = sh_verenigingsectoren.verID and secID = psecId;
+where sh_verenigingen.verID = sh_verenigingsectoren.verID and secID = psecId
+order by sh_verenigingen.verNaam;
 END //
 DELIMITER ;
 

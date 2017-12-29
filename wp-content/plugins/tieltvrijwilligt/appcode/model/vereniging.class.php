@@ -29,7 +29,7 @@ class Vereniging extends \Base
     }
 
     /*retourneert steeds boolean; ook feedback is voorzien*/
-    public function insert($naam, $locatie, $omschrijving, $werkingsGebied, $webSite, $facebook, $beschrijving, $actief, $wpUserId, $rechtsVormId)
+    public function insert($naam, $locatie, $omschrijving, $werkingsGebied, $webSite, $facebook, $beschrijving, $actief, $slug, $wpUserId, $rechtsVormId)
     {
         $result=FALSE;
         $this->errorCode='none';
@@ -40,7 +40,7 @@ class Vereniging extends \Base
         {
             try
             {
-            $preparedStatement = $this->pdo->prepare('call vereniginginsert(@pverID, :pNaam, :pLocatie, :pOmschrijving, :pWerkingsGebied, :pWebSite, :pFacebook, :pBeschrijving, :pActief, :pWPUserId, :pRechtsVormId)');
+            $preparedStatement = $this->pdo->prepare('call vereniginginsert(@pverID, :pNaam, :pLocatie, :pOmschrijving, :pWerkingsGebied, :pWebSite, :pFacebook, :pBeschrijving, :pActief, :pSlug, :pWPUserId, :pRechtsVormId)');
             $preparedStatement->bindParam(':pNaam', $naam, \PDO::PARAM_STR, 255); 
             $preparedStatement->bindParam(':pLocatie', $locatie, \PDO::PARAM_STR, 255);
             $preparedStatement->bindParam(':pOmschrijving', $omschrijving, \PDO::PARAM_STR);/*mysql text type*/
@@ -49,6 +49,7 @@ class Vereniging extends \Base
             $preparedStatement->bindParam(':pFacebook', $facebook, \PDO::PARAM_STR, 255); 
             $preparedStatement->bindParam(':pBeschrijving', $beschrijving, \PDO::PARAM_STR, 50);
             $preparedStatement->bindParam(':pActief', $actief, \PDO::PARAM_BOOL);
+		    $preparedStatement->bindParam(':pSlug', $slug, \PDO::PARAM_STR, 255); 
 		    $preparedStatement->bindParam(':pWPUserId', $wpUserId, \PDO::PARAM_INT, 11);
             $preparedStatement->bindParam(':pRechtsVormId', $rechtsVormId, \PDO::PARAM_INT, 11);
            
@@ -81,7 +82,7 @@ class Vereniging extends \Base
     }
 
     /*retourneert steeds boolean; ook feedback is voorzien*/
-    public function update($verenigingId, $naam, $locatie, $omschrijving, $werkingsGebied, $webSite, $facebook, $beschrijving, $actief, $wpUserId, $rechtsVormId)
+    public function update($verenigingId, $naam, $locatie, $omschrijving, $werkingsGebied, $webSite, $facebook, $beschrijving, $actief, $slug, $wpUserId, $rechtsVormId)
     {
         $result=FALSE;
         $this->errorCode='none';
@@ -93,7 +94,7 @@ class Vereniging extends \Base
 
         try
         {
-        $preparedStatement=$this->pdo->prepare('call verenigingupdate(:pVerenigingId, :pNaam, :pLocatie, :pOmschrijving, :pWerkingsGebied, :pWebSite, :pFacebook, :pBeschrijving, :pActief, :pWPUserId, :pRechtsVormId)');
+        $preparedStatement=$this->pdo->prepare('call verenigingupdate(:pVerenigingId, :pNaam, :pLocatie, :pOmschrijving, :pWerkingsGebied, :pWebSite, :pFacebook, :pBeschrijving, :pActief, :pSlug, :pWPUserId, :pRechtsVormId)');
         $preparedStatement->bindParam(':pVerenigingId', $verenigingId, \PDO::PARAM_INT, 11);
         $preparedStatement->bindParam(':pNaam', $naam, \PDO::PARAM_STR, 255); 
         $preparedStatement->bindParam(':pLocatie', $locatie, \PDO::PARAM_STR, 255);
@@ -103,6 +104,7 @@ class Vereniging extends \Base
         $preparedStatement->bindParam(':pFacebook', $facebook, \PDO::PARAM_STR, 255); 
         $preparedStatement->bindParam(':pBeschrijving', $beschrijving, \PDO::PARAM_STR, 50);
         $preparedStatement->bindParam(':pActief', $actief, \PDO::PARAM_BOOL);
+	    $preparedStatement->bindParam(':pSlug', $slug, \PDO::PARAM_STR, 255); 
 		$preparedStatement->bindParam(':pWPUserId', $wpUserId, \PDO::PARAM_INT, 11);
         $preparedStatement->bindParam(':pRechtsVormId', $rechtsVormId, \PDO::PARAM_INT, 11);
         $success = $preparedStatement->execute();
@@ -218,8 +220,6 @@ class Vereniging extends \Base
     }
 
 
-    
-
     /*retourneert false bij mislukken; bij slagen een 2dim array*/
     public function selectAll()
     {
@@ -254,8 +254,6 @@ class Vereniging extends \Base
         return $result;
     }
     
-
-      
     //retourneert FALSE bij mislukken en een 2dimens array bij slagen
     public function selectVerenigingByUserId($userId)
     {
@@ -299,6 +297,48 @@ class Vereniging extends \Base
     }
 	
 	//retourneert FALSE bij mislukken en een 2dimens array bij slagen
+    public function selectOrganisatieBySlug($slug)
+    {
+        $this->errorCode='none';
+        $this->errorMessage='none';
+        $this->feedback='none';
+        $result=FALSE;
+
+        if($this -> connect())
+        {
+        try 
+        {
+       
+        $preparedStatement = $this->pdo->prepare('call verenigingselectbyslug(:pSlug)');
+        $preparedStatement -> bindParam(':pSlug', $slug, \PDO::PARAM_STR, 255); 
+        $preparedStatement->execute();
+        $this->rowCount = $preparedStatement->rowCount();
+        //fetch the output
+        if($result = $preparedStatement->fetchAll()) //Returns an array containing all of the result set rows 
+        {
+            $this->feedback = "{$preparedStatement->rowCount()} rij(en) met slug = {$slug} gevonden in de tabel sh_verenigingen.";
+        }
+        else //retourneert lege array
+        {
+               $this->feedback = "Geen rijen met slug = {$slug}.";
+               $sQLErrorInfo = $preparedStatement->errorInfo();
+               $this->errorCode = $sQLErrorInfo[0].'/'.$sQLErrorInfo[1];
+               $this->errorMessage = $sQLErrorInfo[2];
+        }
+        }
+        catch (\PDOException $e)
+        {
+                $this->feedback = "de stored procedure verenigingselectbyslug is niet uitgevoerd.";
+                $this->errorMessage = $e->getMessage();
+                $this->errorCode = $e->getCode();
+                $this->rowCount = -1;
+        }
+        $this->close();
+        return $result;
+        }
+    }
+
+	//retourneert FALSE bij mislukken en een 2dimens array bij slagen
     public function filterVerenigingenBySector($sectorId)
     {
         $this->errorCode='none';
@@ -340,6 +380,47 @@ class Vereniging extends \Base
         }
     }
 	
+	//retourneert FALSE bij mislukken en een 2dimens array bij slagen
+    public function filterVerenigingenByTrefwoord($trefWoord)
+    {
+        $this->errorCode='none';
+        $this->errorMessage='none';
+        $this->feedback='none';
+        $result=FALSE;
+
+        if($this -> connect())
+        {
+        try 
+        {
+       
+        $preparedStatement = $this->pdo->prepare('call VerenigingFilter(:pTrefwoord)');
+        $preparedStatement -> bindParam(':pTrefwoord', $trefWoord, \PDO::PARAM_STR, 255); 
+        $preparedStatement->execute();
+        $this->rowCount = $preparedStatement->rowCount();
+        //fetch the output
+        if($result = $preparedStatement->fetchAll()) //Returns an array containing all of the result set rows 
+        {
+            $this->feedback = "{$preparedStatement->rowCount()} rij(en) met trefwoord = {$trefWoord} gevonden in de tabel sh_verenigingen.";
+        }
+        else //retourneert lege array
+        {
+               $this->feedback = "Geen rijen met trefwoord = {$trefWoord}.";
+               $sQLErrorInfo = $preparedStatement->errorInfo();
+               $this->errorCode = $sQLErrorInfo[0].'/'.$sQLErrorInfo[1];
+               $this->errorMessage = $sQLErrorInfo[2];
+        }
+        }
+        catch (\PDOException $e)
+        {
+                $this->feedback = "De stored procedure VerenigingFilter is niet uitgevoerd.";
+                $this->errorMessage = $e->getMessage();
+                $this->errorCode = $e->getCode();
+                $this->rowCount = -1;
+        }
+        $this->close();
+        return $result;
+        }
+    }
 }
 ?>
 

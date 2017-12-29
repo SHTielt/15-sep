@@ -1,5 +1,4 @@
 <?php get_header();?>
-
 <div id="main-content">
 <div class="container">
 <div id="content-area" class="clearfix">
@@ -52,7 +51,7 @@ else
 
 
 <div id="actionsdiv">
-            <a href="http://localhost:8080/sociaalhuis/organisatie-formulier-beschrijving" class="pull-left buttonadd">&nbsp;Organisatie toevoegen</a>
+            <a href="http://localhost:8080/sociaalhuis/organisatie-formulier-account" class="pull-left buttonadd" title="Organisatie toevoegen">&nbsp;Organisatie toevoegen</a>
             <div id="filterdiv">
 <form method="post" action="http://localhost:8080/sociaalhuis/organisaties">
 
@@ -102,14 +101,14 @@ foreach($verenigingen as $vereniging)
 <tr>
 <td style="overflow: hidden;"><?php  echo $vereniging['verNaam']; ?></td>
 <td style="overflow: hidden;"><?php  echo $vereniging['verLocatie']; ?></td>
-<td style="overflow: hidden;"><a href="<?php  echo "http://".$vereniging['verWebsite']; ?>" target="_blank"><?php echo $vereniging['verWebsite']; ?></a></td>
+<td style="overflow: hidden;"><a href="<?php  echo "http://".$vereniging['verWebsite']; ?>" target="_blank" class="sh"><?php echo $vereniging['verWebsite']; ?></a></td>
 <td><?php  if($vereniging['verActief'] == 1) {echo "Ja";} else {echo "Neen";} ?></td>
 <td class="sh_actie">
-<form method="post" action="http://localhost:8080/sociaalhuis/organisatie-formulier-beschrijving" class="sh_form_edit">
-    <input name="verenigingId" value="<?php echo $i; ?>" type="hidden" />
-    <input type="submit" value="Editeer" class="btnedit" /> 
+<form method="post" action="http://localhost:8080/sociaalhuis/organisatie-formulier-account" class="sh_form_edit">
+    <input name="organisatieId" value="<?php echo $i; ?>" type="hidden" />
+    <input type="submit" value="Editeer" class="btnedit" title="Organisatie editeren"/> 
 </form>
-<button id="<?php echo "verBtnDelete".$i?>" class="btndelete">Wis</button>
+<button id="<?php echo "verBtnDelete".$i?>" class="btndelete" title="Organisatie wissen">Wis</button>
 </td>
 </tr>
 <?php
@@ -135,5 +134,4 @@ echo "Er zijn geen organisaties van de sector ";getSector($sectorId);
 </div> <!-- #content-area -->
 </div> <!-- .container -->
 </div> <!-- #main-content -->
-
 <?php get_footer(); ?>

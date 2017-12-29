@@ -7,7 +7,16 @@ require_once RS_PLUGIN_PATH.'appcode/helpers/feedback.class.php';
 require_once RS_PLUGIN_PATH.'appcode/helpers/base.class.php';
 require_once RS_PLUGIN_PATH.'appcode/model/bestuurder.class.php';
 require_once RS_PLUGIN_PATH.'appcode/model/contactpersoon.class.php';
-//require_once RS_WEBSITE_PATH.'wp-load.php'; gaat niet in ajax
+
+//bestuurders voor uitklaplijst ophalen; gebruikt?
+if ($_GET['action'] == "get")
+{
+	$orgId = $_GET['orgid'];
+	$bestObject = new Bestuurder();
+	$bestuurders = $bestObject->selectBestuurderByVerenigingId($orgId);
+	$result = json_encode($bestuurders);
+	echo $result; //retourneert een string van een JSON object van name value paren en index value paren;
+}
 
 //bestuurder als contactpersoon invullen
 if ($_GET['action'] == "fill")
@@ -20,7 +29,7 @@ if ($_GET['action'] == "fill")
 }
 
 
-//bestuurder wissen
+//contactpersoon wissen
 if ($_GET['action'] == "delete")
 {
     $contObject = new ContactPersoon();
@@ -194,10 +203,4 @@ if($_GET['action'] == "update")
 		echo "niet gelukt";
 	}
 }
-
-
-
-
-
-
 ?>

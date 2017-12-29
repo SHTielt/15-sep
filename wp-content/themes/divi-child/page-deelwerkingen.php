@@ -65,5 +65,4 @@ foreach($deelWerkingen as $deelWerking)
 </div> <!-- #content-area -->
 </div> <!-- .container -->
 </div> <!-- #main-content -->
-
 <?php get_footer(); ?>

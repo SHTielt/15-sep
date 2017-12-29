@@ -235,7 +235,6 @@ function sh_StyleAndScript_FunctieFormulier()
 add_action('wp_enqueue_scripts', 'sh_StyleAndScript_FunctieFormulier');
 
 /*14. functie ten behoeve van juridische vormen*/
-
 function sh_StyleAndScript_Rechtsvormen()
 {
     if(is_page('juridische-vormen')) 
@@ -291,7 +290,40 @@ function sh_StyleAndScript_Organisaties()
 }
 add_action('wp_enqueue_scripts', 'sh_StyleAndScript_Organisaties');
 
-/*17. functies ten behoeve van organisatie formulier beschrijving*/
+/*17. functies ten behoeve van organisatie formulier account*/
+function sh_StyleAndScript_OrganisatieFormulierAccount()
+{
+    
+    if(is_page('organisatie-formulier-account')) //slug als argument
+    {
+    wp_register_style('algemeen_style', plugins_url('/tieltvrijwilligt/appcode/view/css/algemeen.css','_FILE_'), array());
+    wp_enqueue_style('algemeen_style'); 
+    wp_register_style('formulier_style', plugins_url('/tieltvrijwilligt/appcode/view/css/formulier.css','_FILE_'), array());
+    wp_enqueue_style('formulier_style'); 
+    wp_register_script('orgformacc_script', plugins_url('/tieltvrijwilligt/appcode/view/js/orgformacc.js','_FILE_'), array('jquery'));
+    wp_enqueue_script('orgformacc_script');
+	wp_enqueue_script( 'password-strength-meter' );
+    //pwsL10n staat in orgformacc.js
+    wp_localize_script( 'password-strength-meter', 'pwsL10n', array(
+      'empty' => __( 'Sterkte indicator' ),
+      'short' => __( 'Zeer zwak wachtwoord' ),
+      'bad' => __( 'Zwak wachtwoord' ),
+      'good' => _x( 'Medium wachtwoord', 'password strength' ),
+      'strong' => __( 'Sterk wachtwoord' ),
+      'mismatch' => __( 'De wachtwoorden zijn niet gelijk' )
+        ) );
+    }
+}
+add_action('wp_enqueue_scripts', 'sh_StyleAndScript_OrganisatieFormulierAccount');
+
+function sh_OrganisatieFormulierAccount() {
+   ob_start();
+   get_template_part('organisatie-formulier-account');
+   return ob_get_clean();   
+} 
+add_shortcode( 'organisatie-formulier-account_shortcode', 'sh_OrganisatieFormulierAccount' );
+
+/*18. functies ten behoeve van organisatie formulier beschrijving*/
 function sh_StyleAndScript_OrganisatieFormulierBeschrijving()
 {
     
@@ -316,7 +348,7 @@ add_shortcode( 'organisatie-formulier-beschrijving_shortcode', 'sh_OrganisatieFo
 
 
 
-//18. functies ten behoeve van organisatie formulier bestuur
+//19. functies ten behoeve van organisatie formulier bestuur
 function sh_StyleAndScript_OrganisatieFormulierBestuur()
 {
     
@@ -341,7 +373,7 @@ add_shortcode( 'organisatie-formulier-bestuur_shortcode', 'sh_OrganisatieFormuli
 
 
 
-//19. functies ten behoeve van organisatie formulier bestuurder
+//20. functies ten behoeve van organisatie formulier bestuurder
 function sh_StyleAndScript_OrganisatieFormulierBestuurder()
 {
     
@@ -365,7 +397,7 @@ function sh_OrganisatieFormulierBestuurder() {
 add_shortcode( 'organisatie-formulier-bestuurder_shortcode', 'sh_OrganisatieFormulierBestuurder' );
 
 
-//20. functies ten behoeve van organisatie formulier contact
+//21. functies ten behoeve van organisatie formulier contact
 function sh_StyleAndScript_OrganisatieFormulierContact()
 {
     
@@ -391,7 +423,7 @@ add_shortcode( 'organisatie-formulier-contact_shortcode', 'sh_OrganisatieFormuli
 
 
 
-//21. functies ten behoeve van organisatie formulier contactpersoon
+//22. functies ten behoeve van organisatie formulier contactpersoon
 function sh_StyleAndScript_OrganisatieFormulierContactPersoon()
 {
     
@@ -416,7 +448,7 @@ add_shortcode( 'organisatie-formulier-contactpersoon_shortcode', 'sh_Organisatie
 
 
 
-//22. functies ten behoeve van organisatie formulier logo
+//23. functies ten behoeve van organisatie formulier logo
 function sh_StyleAndScript_OrganisatieFormulierLogo()
 {
     
@@ -440,7 +472,7 @@ function sh_OrganisatieFormulierLogo() {
 } 
 add_shortcode( 'organisatie-formulier-logo_shortcode', 'sh_OrganisatieFormulierLogo' );
 
-//23. functies ten behoeve van tieltse verenigingen
+//24. functies ten behoeve van tieltse verenigingen
 function sh_StyleAndScript_TieltseOrganisaties()
 {
     
@@ -468,7 +500,8 @@ function sh_TieltseOrganisaties() {
 } 
 add_shortcode( 'tieltseorganisaties_shortcode', 'sh_TieltseOrganisaties' );
 
-//24. functies ten behoeve van verenigingdetails
+//25. functies ten behoeve van organisatiedetails
+
 function sh_StyleAndScript_OrganisatieDetails()
 {
     
@@ -492,7 +525,8 @@ function sh_OrganisatieDetails() {
 } 
 add_shortcode( 'organisatiedetails_shortcode', 'sh_OrganisatieDetails' );
 
-/*25. functies ten behoeve van mijn organisatie*/
+
+/*26. functies ten behoeve van mijn organisatie*/
 function sh_StyleAndScript_MijnOrganisatie()
 {
     
@@ -551,5 +585,66 @@ function sh_MijnOrganisatieLogo() {
    return ob_get_clean();   
 } 
 add_shortcode( 'mijn-organisatie-logo_shortcode', 'sh_MijnOrganisatieLogo' );
+
+/*27. taxonomie toekennen aan paginas*/
+function add_taxonomies_to_pages() {
+ //register_taxonomy_for_object_type( 'post_tag', 'page' );
+ register_taxonomy_for_object_type( 'category', 'page' );
+ }
+add_action( 'init', 'add_taxonomies_to_pages' );
+
+/*Voor wat dient deze functie?*/
+/*
+function category_and_tag_archives( $wp_query ) {
+$my_post_array = array('post','page');
+ 
+ if ( $wp_query->get( 'category_name' ) || $wp_query->get( 'cat' ) )
+ $wp_query->set( 'post_type', $my_post_array );
+ 
+ if ( $wp_query->get( 'tag' ) )
+ $wp_query->set( 'post_type', $my_post_array );
+}
+
+if ( ! is_admin() ) {
+ add_action( 'pre_get_posts', 'category_and_tag_archives' );
+} 
+*/
+
+/*28. page template toekennen aan de categorie orgdetails*/
+/*niet nodig op deze manier; gaat via link en script tag*/
+
+function sh_StyleAndScript_TemplateOrganisatieDetails()
+{
+    
+    if(in_category('orgdetails')) //slug als argument
+    {
+    wp_register_style('algemeen_style', plugins_url('/tieltvrijwilligt/appcode/view/css/algemeen.css','_FILE_'), array());
+    wp_enqueue_style('algemeen_style'); 
+	wp_register_style('orgdetail_style', get_stylesheet_directory_uri() . '/css/organisatiedetails.css');
+    wp_enqueue_style('orgdetail_style');
+    wp_register_script('orgdetail_script', get_stylesheet_directory_uri() . '/js/organisatiedetails.js', array('jquery'),'1.1', true);
+    wp_enqueue_script('orgdetail_script');
+	}
+}
+add_action('wp_enqueue_scripts', 'sh_StyleAndScript_TemplateOrganisatieDetails');
+
+
+/*29 functie tbv Manillers*/
+/*
+function sh_StyleAndScript_Manillers()
+{
+    
+    if(is_page('manillers')) //slug als argument
+    {
+    wp_register_style('algemeen_style', plugins_url('/tieltvrijwilligt/appcode/view/css/algemeen.css','_FILE_'), array());
+    wp_enqueue_style('algemeen_style'); 
+	wp_register_style('orgdetail_style', get_stylesheet_directory_uri() . '/css/organisatiedetails.css');
+    wp_enqueue_style('orgdetail_style');
+    wp_register_script('orgdetail_script', get_stylesheet_directory_uri() . '/js/organisatiedetails.js', array('jquery'),'1.1', true);
+    wp_enqueue_script('orgdetail_script');
+	}
+}
+add_action('wp_enqueue_scripts', 'sh_StyleAndScript_Manillers');
+ */
 
 ?>

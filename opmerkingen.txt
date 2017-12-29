@@ -1,0 +1,6 @@
+mobiele menu is beschreven in <?php do_action( 'et_header_top' ); ?>
+load wp library
+kleur van header border bottom nt gevonden
+1x het inputveld idOrganisatie in het profiel vd org volstaat.
+bootstrap knoppen {text-shadow: 0 -1px 0 rgba(0,0,0,0.25);}
+onerror fires when there is a failure on the network level. If the error only exists on the application level, e.g., an HTTP error code is sent, then onload still fires. You need to test the returned status code explicitly in your onreadystatechange handler.

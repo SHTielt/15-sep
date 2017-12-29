@@ -21,7 +21,7 @@ $functies = $funcObject->selectAll();
 
 <div id="bestuurderFormulier">
 <div>
-    <button id="bestBtnBack" class="buttonback" title="<?php echo "Terug naar bestuur van ".$gezochteOrg[0]['verNaam'];?>">&nbsp;Terug naar bestuur</a>
+    <button id="bestBtnBack" class="buttonback" title="<?php if(empty($gezochteorg)){echo "Terug naar bestuur";} else {echo "Terug naar bestuur van ".$gezochteOrg[0]['verNaam'];}?>">&nbsp;Terug naar bestuur</a>
 </div>
 
 <div id="rodebalk3" class="alert-info">
@@ -48,18 +48,18 @@ $functies = $funcObject->selectAll();
            
             <div class="control-group">
                  <label for="voornaamBestuurder" class="control-label">VOORNAAM:</label>
-                 <div class="controls"><input id="voornaamBestuurder" name="voornaamBestuurder" type="text"  value="" required><span class="asterisk_input"></span></div>
+                 <div class="controls"><input id="voornaamBestuurder" name="voornaamBestuurder" type="text"  value="" ><span class="asterisk_input"></span></div>
             </div>
             
             <div class="control-group">
                  <label for="naamBestuurder" class="control-label">NAAM:</label>
-                 <div class="controls"><input id="naamBestuurder" name="naamBestuurder" type="text" value="" required><span class="asterisk_input"></span></div>
+                 <div class="controls"><input id="naamBestuurder" name="naamBestuurder" type="text" value="" ><span class="asterisk_input"></span></div>
             </div>
             
             <div class="control-group">
                   <label for="infoBestuurder" class="control-label">EXTRA INFO:</label>
                   <div class="controls">
-                  	<textarea id="infoBestuurder" name="infoBestuurder" rows="5" cols="40" placeholder="max 255 karakters" style="resize: none"></textarea>
+                  	<textarea id="infoBestuurder" name="infoBestuurder" rows="5" placeholder="max 255 karakters" style="resize: none"></textarea>
                   </div>
             </div>
             
@@ -100,17 +100,13 @@ $functies = $funcObject->selectAll();
             </div>
             
             <div class="control-group">
-                 <input id="idVereniging" name="idVereniging" type="hidden" value="<?php if(!empty($gezochteOrg)){echo $gezochteOrg[0]['verID']; }?>">
-            </div>  
-                   
-            <div class="control-group">
                 <div class="controls">
                 
-                <button id="btnBestuurderSave" name="btnBestuurderSave" type="submit" class="btnsave">&nbsp;Opslaan</button>
-                <button id="btnBestuurderUpdate" name="btnBestuurderUpdate" type="submit" class="btnupdate">&nbsp;Wijzigen</button>
+                <button id="btnBestuurderSave" name="btnBestuurderSave" type="submit" class="btnsave" title="Bestuurder opslaan">&nbsp;Opslaan</button>
+                <button id="btnBestuurderCancel" name="btnBestuurderCancel" type="submit" class="btncancel" title="Formulier ledigen">&nbsp;Cancel</button>
+                <button id="btnBestuurderUpdate" name="btnBestuurderUpdate" type="submit" class="btnupdate" title="Bestuurder wijzigen">&nbsp;Wijzigen</button>
                 
                 </div>
             </div>          
  
 </div>
-

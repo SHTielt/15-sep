@@ -47,10 +47,9 @@ jQuery(document).ready(function () {
 });             //einde ready event
 
 function deleteBestuurder() {
-				alert('hi');
-                var btnid = jQuery(this).attr("id"); //attribuut lezen in jQuery
+				var btnid = jQuery(this).attr("id"); //attribuut lezen in jQuery
                 var id = btnid.substring(13);
-                alert(id);
+                //alert(id);
                 
                 //dialog widget bij verwijderen record
                 /*

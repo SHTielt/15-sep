@@ -62,6 +62,7 @@ if(isset($_POST['btnBestuurderSave']))
 		}
 		echo "telefoon: ".$telefoon."<br />";
 		
+		/*
 		if(!empty($_POST['cvBestuurder']))
 		{
 			$contactVoorkeurId = $_POST['cvBestuurder'];
@@ -70,6 +71,8 @@ if(isset($_POST['btnBestuurderSave']))
 		{
 			$contactVoorkeurId = NULL;
 		}
+		*/
+		$contactVoorkeurId = NULL;
 		echo "contactvoorkeur: ".$contactVoorkeurId."<br />";
 		
 		if(!empty($_POST['funcBestuurder']))
@@ -162,6 +165,7 @@ if(isset($_POST['btnBestuurderUpdate']))
 		}
 		echo "telefoon: ".$telefoon."<br />";
 		
+		/*
 		if(!empty($_POST['cvBestuurder']))
 		{
 			$contactVoorkeurId = $_POST['cvBestuurder'];
@@ -170,6 +174,8 @@ if(isset($_POST['btnBestuurderUpdate']))
 		{
 			$contactVoorkeurId = NULL;
 		}
+		*/
+		$contactVoorkeurId = NULL;
 		echo "contactvoorkeur: ".$contactVoorkeurId."<br />";
 		
 		if(!empty($_POST['funcBestuurder']))
@@ -265,6 +271,4 @@ if (isset($_GET['actie']) && isset($_GET['bestuurderid']))
 	  
 	 
 }
-
 ?>
-

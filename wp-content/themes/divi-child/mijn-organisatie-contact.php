@@ -9,18 +9,21 @@ $wpUserId = $current_user->ID;
 $orgObject = new Vereniging();
 $gezochteVer = $orgObject->selectVerenigingByUserId($wpUserId);
 //print_r($gezochteVer);
-$organisatieId = $gezochteVer[0]['verID'];
-	
-//contactpersoon ophalen
-$contObject = new ContactPersoon();
-$contact = $contObject->selectContactPersoonByVerenigingId($organisatieId);	
-//print_r($contact);
+if(!empty($gezochteVer))
+{
+	$organisatieId = $gezochteVer[0]['verID'];
+	//contactpersoon ophalen
+	$contObject = new ContactPersoon();
+	$contact = $contObject->selectContactPersoonByVerenigingId($organisatieId);	
+	//print_r($contact);
+}
+
 
 ?>
 
 <div id="overzichtContact">
 <div id="rodebalk4" class="alert-info">
-                <strong>&nbsp;Contactpersoon voor nieuwe leden bij <?php echo $gezochteVer[0]['verNaam']?></strong>
+                <strong><?php if(empty($gezochteVer)){echo "&nbsp;Contactpersoon";} else { echo "&nbsp;Contactpersoon van "; echo $gezochteVer[0]['verNaam'];}?></strong>
 </div>
 
 <?php if(empty($contact))
@@ -28,7 +31,7 @@ $contact = $contObject->selectContactPersoonByVerenigingId($organisatieId);
 ?>	
 
 <div id="cpactionsdiv">
-			<a id="cpBtn" class="pull-left buttonadd">&nbsp;Contactpersoon toevoegen</a>
+			<a id="cpBtn" class="pull-left buttonadd" title="Contactpersoon toevoegen">&nbsp;Contactpersoon toevoegen</a>
 </div>
 <?php
 }
@@ -98,8 +101,8 @@ else
 ?>
 </td>
 <td class="sh_actie">
-<button id="<?php echo "contBtnEdit".$i; ?>" class="btnedit" title="edit">Editeer</button> 
-<button id="<?php echo "contBtnDelete".$i; ?>" title="wis" class="btndelete">Wis</button>
+<button id="<?php echo "contBtnEdit".$i; ?>" class="btnedit" title="Contactpersoon editeren">Editeer</button> 
+<button id="<?php echo "contBtnDelete".$i; ?>" title="Contactpersoon wissen" class="btndelete">Wis</button>
 </td>
 </tr>
 <?php
@@ -107,4 +110,3 @@ else
 </tbody>
 </table>
 </div>
-

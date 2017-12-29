@@ -6,7 +6,7 @@ function cleanInput($input)
     	if(is_string($value))//enkel strings worden aangepakt
 		{
 			//HTML tags en PHP code verwijderen
-        	$value = strip_tags($value);
+        	$value = strip_tags($value,'<br>');
         	//witruimte aan het begin en einde verwijderen
         	$value = trim($value);
         	//2 spaties vervangen door één spatie

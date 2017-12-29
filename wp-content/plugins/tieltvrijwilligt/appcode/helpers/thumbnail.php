@@ -117,5 +117,3 @@ function createThumbnail( $fname, $thumbWidth )
 
 
 ?>
-
-

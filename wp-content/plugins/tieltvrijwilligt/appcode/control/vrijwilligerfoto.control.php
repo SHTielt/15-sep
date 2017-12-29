@@ -192,23 +192,3 @@ header('Location: http://localhost:8080/sociaalhuis/vrijwilliger-formulier-foto'
 
 
 ?>
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-    </head>
-    <body>
-        <p>Test insert foto</p>
-        <ul>
-            <li>Message: <?php echo $fotoObject->getFeedback(); ?></li>
-            <li>Error message: <?php echo $fotoObject->getErrorMessage(); ?></li>
-            <li>Error code: <?php echo $fotoObject->getErrorCode(); ?></li>
-            <li>ID: <?php echo $fotoObject->getFotoId(); ?></li>
-        </ul>
-    </body>
-</html>
-     
--->

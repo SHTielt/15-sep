@@ -1,11 +1,6 @@
-#main-content div.container {
-	padding-top: 27px;
-}
-
 #filterdiv {
 	display: inline-block;
     margin-left: 2em;
-    
 }
 
 #filterdiv select {
@@ -24,7 +19,7 @@
     height: auto;
     overflow: auto;/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
     margin: 0 auto 16px;
-    
+    table-layout: fixed;
 }
 
 
@@ -52,11 +47,7 @@ div#verenigingenTabel tbody td {
 .sh_vernaam {
 	width: 25%;
 }
-/*
-.sh_verlocatie {
-	width: 20%;
-}
-*/
+
 .sh_verwebsite {
 	width: 25%;
 	overflow: hidden;
@@ -65,6 +56,7 @@ div#verenigingenTabel tbody td {
 
 .sh_veractief {
     width: 5%;
+    overflow: hidden;
 }
 
 .sh_actie {
@@ -75,7 +67,120 @@ div#verenigingenTabel tbody td {
     display: none;
 }
 
+/*3. organisaties overzicht bestuur*/
+#bestTabel {
+	table-layout: fixed;
+}
 
+.entry-content .sh_bestvoornaam {
+	width: 16%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_bestnaam {
+	width: 20%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_bestfunctie, .entry-content .sh_bestemail {
+	width: 22%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_actie {
+	width: 20%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+div.entry-content tr td {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/*DEFAULT SCREENS and TABLETS in LANDSCAPE*/
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+	
+	
+
+} 
+/*end DEFAULTS SCREENS and TABLETS in LANDSCAPE*/
+
+
+
+/*SMARTPHONES and TABLETS in PORTRAIT*/
+
+@media screen and (max-width: 767px) {
+	/*1. Force table to not be like table anymore */
+	#verenigingenTabel * {
+		display: block;
+	}
+	
+	/* 2. rijen onderscheiden*/
+	table#verenigingenTabel tbody tr {
+		 border: 1px solid #ccc;
+		 max-width: none;//override Divi
+	}
+	
+	/*3. cellen onderscheiden*/
+	table#verenigingenTabel tbody td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		max-width: none;
+		padding-left: 35%;
+		min-height: 48.18px;
+	}
+	
+	/* 4. Hide table headers (but not display: none;, for accessibility) */
+	#verenigingenTabel thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+		
+	/*5. ruimte voor cel laten gedragen als table head*/
+    table#verenigingenTabel td:before { 
+		position: absolute;
+        //top: 6px;
+        left: 16px;
+        width: 25%;
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+	
+	/*6. nieuwe labels voorzien*/
+	
+	#verenigingenTabel td:nth-of-type(1):before { content: "Naam"; }
+    #verenigingenTabel td:nth-of-type(2):before { content: "Locatie"; }
+    #verenigingenTabel td:nth-of-type(3):before { content: "Website"; }
+    #verenigingenTabel td:nth-of-type(4):before { content: "Actief"; }
+	#verenigingenTabel td:nth-of-type(5):before { content: "Actie"; }
+	
+	
+	/*7. hyperlink moet als inline-block*/
+	/*
+	#verenigingenTabel td a {
+		display: inline-block;
+	}
+	*/
+} 
+
+/*end SMARTPHONES and TABLETS in PORTRAIT*/
+
+
+
+/*SMALL SMARTPHONES*/
+
+@media screen and (max-width: 480px) {
+	
+	
+} 
+
+/*end SMALL SMARTPHONES*/
 
 
 

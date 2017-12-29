@@ -116,21 +116,7 @@ DELIMITER ;
 
 call Verenigingselectall();
 
-/*
-USE sociaalhuis;
-DROP PROCEDURE IF EXISTS `VerenigingSelectById`;
-DELIMITER //
-CREATE PROCEDURE `VerenigingSelectById`
-(
-	IN pverID INT 
-)
-BEGIN
-	SELECT * FROM sh_verenigingen WHERE verID = pverID;
-END //
-DELIMITER ;
 
-call VerenigingSelectById(2);
-*/
 
 
 USE sociaalhuis;
@@ -141,11 +127,11 @@ CREATE PROCEDURE `VerenigingSelectById`
 	IN pverID INT 
 )
 BEGIN
-	SELECT distinct sh_verenigingen.verID as verID, verNaam, verLocatie, verOmschrijving, verWerkingsgebied, verWebsite, verFacebook, verBeschrijving, verWPUserId, rvID, versecID, secID FROM sh_verenigingen, sh_verenigingsectoren WHERE sh_verenigingen.verID = sh_verenigingsectoren.verID and sh_verenigingen.verID = pverID;
+	SELECT distinct sh_verenigingen.verID as verID, verNaam, verLocatie, verOmschrijving, verWerkingsGebied, verWebsite, verFacebook, verBeschrijving, verWPUserID, verSlug, verActief, rvID, versecID, secID FROM sh_verenigingen, sh_verenigingsectoren WHERE sh_verenigingen.verID = sh_verenigingsectoren.verID and sh_verenigingen.verID = pverID;
 END //
 DELIMITER ;
 
-call VerenigingSelectById(24);
+call VerenigingSelectById(86);
 
 
 
@@ -161,4 +147,34 @@ BEGIN
 END //
 DELIMITER ;
 
-call VerenigingSelectByUserId(100);
+call VerenigingSelectByUserId(52);
+
+
+USE sociaalhuis;
+DROP PROCEDURE IF EXISTS `VerenigingSelectBySlug`;
+DELIMITER //
+CREATE PROCEDURE `VerenigingSelectBySlug`
+(
+	IN pverSlug VARCHAR (255) CHARACTER SET UTF8 
+)
+BEGIN
+	SELECT * FROM sh_verenigingen WHERE pverSlug = verSlug;
+END //
+DELIMITER ;
+
+call VerenigingSelectBySlug('manillers');
+
+USE sociaalhuis;
+DROP PROCEDURE IF EXISTS `VerenigingFilter`;
+DELIMITER //
+CREATE PROCEDURE `VerenigingFilter`
+(
+	IN pTrefwoord VARCHAR (255) CHARACTER SET UTF8 
+)
+BEGIN
+	SELECT * FROM sh_verenigingen WHERE verNaam LIKE CONCAT('%', pTrefwoord,'%') OR verBeschrijving LIKE CONCAT('%', pTrefwoord,'%') OR verOmschrijving LIKE CONCAT('%', pTrefwoord,'%') order by sh_verenigingen.verNaam;
+END //
+DELIMITER ;
+
+call VerenigingFilter('ziekenfonds');
+

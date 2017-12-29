@@ -198,15 +198,4 @@ if(isset($_POST["btnVerenigingFotoDelete"]))
 		echo $message;
         header('Location: http://localhost:8080/sociaalhuis/organisatie-formulier-logo?organisatieid='.$verenigingId);
     }
-}
-
-
-
-
-?>
-<?php
-
-//superglobal $_FILES:
-//Array ( [fileToUpload] => Array ( [name] => de_luifel.jpg [type] => image/jpeg [tmp_name] => C:\wamp64\tmp\php695B.tmp [error] => 0 [size] => 8201 ) )
-
-?>
+}?>

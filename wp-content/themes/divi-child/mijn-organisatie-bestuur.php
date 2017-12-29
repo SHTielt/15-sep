@@ -10,22 +10,25 @@ $wpUserId = $current_user->ID;
 $orgObject = new Vereniging();
 $gezochteVer = $orgObject->selectVerenigingByUserId($wpUserId);
 //print_r($gezochteVer);
-$organisatieId = $gezochteVer[0]['verID'];
-	
-//bestuurders ophalen
-$bestObject = new Bestuurder();
-$bestuurders = $bestObject->selectBestuurderByVerenigingId($organisatieId);	
-//print_r($bestuurders);
+$bestuurders="";
+if(!empty($gezochteVer))
+{
+	$organisatieId = $gezochteVer[0]['verID'];	
+	//bestuurders ophalen
+	$bestObject = new Bestuurder();
+	$bestuurders = $bestObject->selectBestuurderByVerenigingId($organisatieId);	
+	//print_r($bestuurders);
+}
  
 ?>
 
 <div id="overzichtBestuurders">
 <div id="rodebalk2" class="alert-info">
-                <strong>&nbsp;Bestuurders van <?php echo $gezochteVer[0]['verNaam']?></strong>
+        <strong><?php if(empty($gezochteVer)){echo "&nbsp;Bestuurders";} else { echo "&nbsp;Bestuurders van "; echo $gezochteVer[0]['verNaam'];}?></strong>
 </div>
 
 <div id="actionsdiv">
-			<a id="bestuurderBtn" class="pull-left buttonadd">&nbsp;Bestuurder toevoegen</a>
+			<a id="bestuurderBtn" class="pull-left buttonadd" title="Bestuurder toevoegen">&nbsp;Bestuurder toevoegen</a>
 </div>
 
 <table id="bestuurdersTabel">
@@ -40,7 +43,11 @@ $bestuurders = $bestObject->selectBestuurderByVerenigingId($organisatieId);
 </thead>
 <tbody>
 <?php
-if(count($bestuurders) == 0)
+//if(!empty($bestuurders))
+//{
+	
+
+if(empty($bestuurders) || count($bestuurders) == 0)
 {
 ?>
 <tr>
@@ -66,14 +73,15 @@ foreach($bestuurders as $bestuurder)
 <td><?php  echo $bestuurder['funcNaam']; ?></td>
 <td><?php echo $bestuurder['bestEmail']; ?></td>
 <td class="sh_actie">
-<button id="<?php echo "bestBtnEdit".$i; ?>" class="btnedit" title="edit">Editeer</button> 
-<button id="<?php echo "bestBtnDelete".$i; ?>" title="wis" class="btndelete">Wis</button>
+<button id="<?php echo "bestBtnEdit".$i; ?>" class="btnedit" title="Bestuurder editeren">Editeer</button> 
+<button id="<?php echo "bestBtnDelete".$i; ?>" title="Bestuurder wissen" class="btndelete">Wis</button>
 </td>
 </tr>
 <?php
 }//end foreach
-}//end else ?>
+}//end else
+//}//einde if(!empty($bestuurders))
+?>
 </tbody>
 </table>
 </div>
-

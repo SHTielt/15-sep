@@ -5838,7 +5838,7 @@ function et_divi_add_customizer_css(){ ?>
 		$footer_widget_header_color = et_get_option( 'footer_widget_header_color', $accent_color );
 		$footer_widget_bullet_color = et_get_option( 'footer_widget_bullet_color', $accent_color );
 
-		$widget_header_font_size = intval( et_get_option( 'widget_header_font_size', intval( et_get_option( 'body_header_size' * .6, '18' ) ) ) );
+		$widget_header_font_size = intval( et_get_option( 'widget_header_font_size', intval( et_get_option( 'body_header_size', '18' ) ) ) );
 		$widget_body_font_size = absint( et_get_option( 'widget_body_font_size', $body_font_size ) );
 		$widget_body_line_height = floatval( et_get_option( 'widget_body_line_height', '1.7' ) );
 

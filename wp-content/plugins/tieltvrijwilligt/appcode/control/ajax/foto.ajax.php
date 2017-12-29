@@ -31,6 +31,4 @@ if ($_GET['action'] == "delete")
 		echo "niet gelukt";
 	}
 }
-
-
 ?>

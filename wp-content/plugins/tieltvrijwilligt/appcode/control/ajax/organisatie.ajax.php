@@ -4,9 +4,10 @@ define('RS_WEBSITE_PATH','c:/wamp64/www/sociaalhuis/');
 
 require_once RS_PLUGIN_PATH.'appcode/helpers/feedback.class.php';
 require_once RS_PLUGIN_PATH.'appcode/helpers/base.class.php';
+//require_once RS_PLUGIN_PATH.'appcode/helpers/cleaninput.php';
 require_once RS_PLUGIN_PATH.'appcode/model/vereniging.class.php';
 require_once RS_PLUGIN_PATH.'appcode/model/verenigingsector.class.php';
-//require_once RS_WEBSITE_PATH.'wp-load.php'; gaat niet in ajax
+require_once RS_WEBSITE_PATH.'wp-load.php'; 
 
 //organisatie toevoegen
 if($_GET['action'] == "add")
@@ -67,10 +68,20 @@ if($_GET['action'] == "add")
 			$rechtsVormId = NULL;
 	}
 		
-	$actief = 1;
+	$actief = 0;
 		
-	$wpUserId = $_GET['wpuserid'];
-					
+	//$wpUserId = $_GET['wpuserid'];
+	
+	//1. opslaan in WP
+	//wpUserId hoeft niet vooraf in het formulier opgeslagen te zijn. Kan opgevraagd worden.
+	$current_user = wp_get_current_user();
+	$wpUserId = $current_user->ID;
+	$userData =  array( 'ID' => $wpUserId, 'first_name' => $naam );
+    $resultaat = wp_update_user( $userData );
+
+	
+	
+	//2. opslaan in eigen databank				
 	$orgObject = new Vereniging();
 	//insert($naam, $locatie, $omschrijving, $werkingsGebied, $webSite, $facebook, $beschrijving, $actief, $wpUserId, $rechtsVormId)
 	$success = $orgObject->insert($naam, $locatie, $omschrijving, $werkingsGebied, $website, $facebook, $beschrijving, $actief, $wpUserId, $rechtsVormId);
@@ -136,6 +147,8 @@ if($_GET['action'] == "add")
 //organisatie wijzigen
 if($_GET['action'] == "update")
 {
+	//$_GET = cleanInput($_GET);
+	
 	$naam = $_GET['naam'];
 	
 	if(!empty($_GET['locatie']))
@@ -191,13 +204,23 @@ if($_GET['action'] == "update")
 	{
 			$rechtsVormId = NULL;
 	}
-		
-	$actief = 1;
-		
-	$wpUserId = $_GET['wpuserid'];
+			
+	//$wpUserId = $_GET['wpuserid'];
 	
 	$orgId = $_GET['orgid'];
-					
+	
+	//0. waarde van $actief ophalen uit de databank; waarde wordt bepaald door SociaalHuis
+	$orgObject1 = new Vereniging();
+	$gezochteOrg = $orgObject1->selectVerenigingById($orgId);
+	$actief = $gezochteOrg[0]['verActief'];
+	
+	//1. opslaan in WP
+	$current_user = wp_get_current_user();
+	$wpUserId = $current_user->ID;
+	$userData =  array( 'ID' => $wpUserId, 'first_name' => $naam );
+    $resultaat = wp_update_user( $userData );
+	
+	//2. opslaan in eigen databank				
 	$orgObject = new Vereniging();
 	//function update($verenigingId, $naam, $locatie, $omschrijving, $werkingsGebied, $webSite, $facebook, $beschrijving, $actief, $wpUserId, $rechtsVormId)
 	$success = $orgObject->update($orgId, $naam, $locatie, $omschrijving, $werkingsGebied, $website, $facebook, $beschrijving, $actief, $wpUserId, $rechtsVormId);
@@ -279,9 +302,4 @@ if($_GET['action'] == "update")
             
         }
 }
-
-
-
-
-
 ?>

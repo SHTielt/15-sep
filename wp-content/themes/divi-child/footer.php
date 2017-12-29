@@ -31,7 +31,11 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 
 				<div id="footer-bottom">
 					<div class="container clearfix">
-				<?php
+					<div class="column col2">
+					<img id="SHlogo" src="wp-content/plugins/tieltvrijwilligt/appcode/view/fotouploads/thumbs/sociaal_huis_tielt.png" alt="Sociaal Huis"></a>
+					</div>
+					<div class="column col2">
+					<?php
 					if ( false !== et_get_option( 'show_footer_social_icons', true ) ) {
 						get_template_part( 'includes/social_icons', 'footer' );
 					}
@@ -40,8 +44,11 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 					echo "Sociaal Huis/OCMW Tielt, Deken Darraslaan 60, 8700 Tielt"."<br />";
 					echo "051/40 90 52"."<br />";
 					echo "&#115;&#111;&#099;&#105;&#097;&#097;&#108;&#104;&#117;&#105;&#115;&#064;&#111;&#099;&#109;&#119;&#116;&#105;&#101;&#108;&#116;&#046;&#098;&#101;";
-				?>
-					</div>	<!-- .container -->
+				    ?>
+					</div>
+					</div>
+				
+					
 				</div>
 			</footer> <!-- #main-footer -->
 		</div> <!-- #et-main-area -->

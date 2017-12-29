@@ -1,11 +1,12 @@
 <?php
+//Is dit bestand nog nodig?
 define('RS_PLUGIN_PATH','c:/wamp64/www/sociaalhuis/wp-content/plugins/tieltvrijwilligt/');
 define('RS_WEBSITE_PATH','c:/wamp64/www/sociaalhuis/');
 require_once RS_PLUGIN_PATH.'appcode/helpers/feedback.class.php';
 require_once RS_PLUGIN_PATH.'appcode/helpers/base.class.php';
 require_once RS_PLUGIN_PATH.'appcode/helpers/cleaninput.php';
 require_once RS_PLUGIN_PATH.'appcode/model/vereniging.class.php';
-require_once RS_WEBSITE_PATH.'wp-load.php'; //gaat niet in ajax
+require_once RS_WEBSITE_PATH.'wp-load.php'; 
 
 if(isset($_GET['organisatieid']))
 {
@@ -33,7 +34,8 @@ if(isset($_POST['btnVerenigingSave']))
 		
 			$message = "Er is een fout. Waarschijnlijk bestaat de gebruiker niet.";
             $_SESSION['message'] = $message;
-			header('Location: http://localhost:8080/sociaalhuis/gefaald/');
+			header('Location: http://localhost:8080/sociaalhuis/gefaald');
+			exit;
 		} 
 		
 		
@@ -105,7 +107,7 @@ if(isset($_POST['btnVerenigingSave']))
 		echo "rechtsvormid: ".$rechtsVormId;
 		
 		
-		$actief = 1;
+		$actief = 0;
 		echo "actief: ".$actief;
 		
 		
@@ -238,7 +240,7 @@ if(isset($_POST['btnVerenigingUpdate']))
 		}
 		echo "facebook: ".$facebook."<br />";
 		
-		$actief = 1;
+		$actief = 0;
 		echo "actief: ".$actief."<br />";
 		
 		//wpUserId kan in het formulier eigenlijk gewist worden.
@@ -316,6 +318,4 @@ if(isset($_POST['btnVerenigingUpdate']))
 	   
           
 }//einde update
-
-
 ?>

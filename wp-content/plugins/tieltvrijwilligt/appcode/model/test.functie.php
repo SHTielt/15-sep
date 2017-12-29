@@ -11,21 +11,21 @@ require_once RS_DIR_PATH.'functie.class.php';
 //insert testen
 /*
 $functie = new Functie();
-$naam = "Directeur";
-$info = "bla";
+$naam = "testfc";
+$info = "`t 'ok' goed" ;
 
 $functie->insert($naam, $info);
 */
 
 //update testen
-/*
-$functieId = 6;
+
+$functieId = 21;
 $functie = new Functie();
-$naam = "Directrice";
-$info = "blabla";
+$naam = "testfc";
+$info = "`t 'ok' /goed" ;
 
 $functie->update($functieId, $naam, $info);
-*/
+
 
 //selectAll testen
 /*
@@ -41,12 +41,31 @@ $result = $objectS->selectFunctieById(6);
 */
 
  //delete testen
- 
+ /*
  $objectD = new Functie();
  $objectD->delete(6);
- 
+ */
 ?>
 
+<p>Test update functie</p>
+        <ul>
+            <li>Feedback: <?php echo $functie->getFeedback(); ?></li>
+            <li>Error message: <?php echo $functie->getErrorMessage(); ?></li>
+            <li>Error code: <?php echo $functie->getErrorCode(); ?></li>
+        </ul>
+
+
+<!--
+<p>Test insert functie</p>
+        <ul>
+            <li>Feedback: <?php echo $functie->getFeedback(); ?></li>
+            <li>Error message: <?php echo $functie->getErrorMessage(); ?></li>
+            <li>Error code: <?php echo $functie->getErrorCode(); ?></li>
+            <li>ID: <?php echo $functie->getFunctieId(); ?></li>
+        </ul>
+-->
+
+<!--
 <p>Test deleting functie</p>
         <ul>
             <li>Message: <?php echo $objectD->getFeedback(); ?></li>
@@ -54,7 +73,7 @@ $result = $objectS->selectFunctieById(6);
             <li>Error code: <?php echo $objectD->getErrorCode(); ?></li>
         </ul>
 </p>
-
+-->
 
 <!--
 <p>Test selectFunctieById</p>
@@ -103,21 +122,6 @@ $result = $objectS->selectFunctieById(6);
 </table>
 -->
 
-<!--
-<p>Test update functie</p>
-        <ul>
-            <li>Feedback: <?php echo $functie->getFeedback(); ?></li>
-            <li>Error message: <?php echo $functie->getErrorMessage(); ?></li>
-            <li>Error code: <?php echo $functie->getErrorCode(); ?></li>
-        </ul>
--->
 
-<!--
-<p>Test insert functie</p>
-        <ul>
-            <li>Feedback: <?php echo $functie->getFeedback(); ?></li>
-            <li>Error message: <?php echo $functie->getErrorMessage(); ?></li>
-            <li>Error code: <?php echo $functie->getErrorCode(); ?></li>
-            <li>ID: <?php echo $functie->getFunctieId(); ?></li>
-        </ul>
--->       
+
+  

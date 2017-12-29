@@ -1,4 +1,6 @@
+//////////////////////////
 //functies tbv organisatie
+/////////////////////////
 function controleerNaamOrganisatie() {
 	if(jQuery("#naamOrganisatie").val() == "")
 	{
@@ -15,8 +17,6 @@ function foutBijNaamOrganisatie(zichtbaar){
                     //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#naamOrganisatie").after("<br /><span class='foutmelding'>Gelieve een naam in te vullen.</span><br />");
                     jQuery("#naamOrganisatie").addClass("foutveld");
-                    jQuery("#naamOrganisatie").focus();
-                    
                 }
                 //verwijdert foutmelding en ontkleurt inputveld
     if (!zichtbaar && jQuery("#naamOrganisatie.foutveld").length != 0) {
@@ -43,8 +43,6 @@ function foutBijOmschrijving1(zichtbaar){
                     //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#omschrijvingOrganisatie").after("<br /><span class='foutmelding'>Gelieve de omschrijving toe te voegen.</span><br />");
                     jQuery("#omschrijvingOrganisatie").addClass("foutveld");
-                    jQuery("#omschrijvingOrganisatie").focus();
-                    
                 }
                 //verwijdert foutmelding en ontkleurt inputveld
     if (!zichtbaar && jQuery("#omschrijvingOrganisatie.foutveld").length != 0) {
@@ -71,8 +69,6 @@ function foutBijJuridischeVorm(zichtbaar){
                     //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#rvOrganisatie").after("<br /><span class='foutmelding'>Gelieve de jurische vorm te selecteren.</span><br />");
                     jQuery("#rvOrganisatie").addClass("foutveld");
-                    jQuery("#rvOrganisatie").focus();
-                    
                 }
                 //verwijdert foutmelding en ontkleurt inputveld
     if (!zichtbaar && jQuery("#rvOrganisatie.foutveld").length != 0) {
@@ -96,13 +92,13 @@ function controleerSectoren() {
 }
 
 function foutBijSectoren1(zichtbaar){
+	//plaatst rode foutmelding en kleurt inputveld geel
 	if (zichtbaar && jQuery("#sectorenfieldset.foutveld").length == 0) {
-                    //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#sectorenfieldset").after("<br /><span class='foutmelding'>Gelieve tenminste één sector te kiezen.</span><br />");
                     jQuery("#sectorenfieldset").addClass("foutveld");
                                         
                 }
-                //verwijdert foutmelding en ontkleurt inputveld
+    //verwijdert foutmelding en ontkleurt inputveld
     if (!zichtbaar && jQuery("#sectorenfieldset.foutveld").length != 0) {
                     jQuery("#sectorenfieldset").next().remove(); //verwijdert de eerste br tag
                     jQuery("#sectorenfieldset").next().remove();
@@ -132,7 +128,7 @@ function minimumValidatieOrganisatie(){
 //validatie functies tbv beschrijving organisatie
 function controleerBeschrijving(){
 	var veld2 = jQuery("#beschrijvingOrganisatie").val();
-	if (veld2.length >= 30) {
+	if (veld2.length >= 50) {
 			return false;
 	}
 	else
@@ -144,7 +140,7 @@ function controleerBeschrijving(){
 function foutBijBeschrijving(zichtbaar) {
                 if (zichtbaar && jQuery("#beschrijvingOrganisatie.foutveld").length == 0) {
                     //plaatst rode foutmelding en kleurt inputveld geel
-                    jQuery("#beschrijvingOrganisatie").after("<br /><span class='foutmelding'>Gelieve de korte beschrijving te beperken tot 30 karakters.</span><br />");
+                    jQuery("#beschrijvingOrganisatie").after("<br /><span class='foutmelding'>Gelieve de korte beschrijving te beperken tot 50 karakters.</span><br />");
                     jQuery("#beschrijvingOrganisatie").addClass("foutveld");
                     jQuery("#beschrijvingOrganisatie").focus();
                     
@@ -249,8 +245,10 @@ function foutBijSectoren(){
 }
 
 
-
+////////////////////////////////////////////////////
 //validatie functies tbv bestuurders van organisatie
+///////////////////////////////////////////////////
+
 function controleerVoornaam() {
 	if(jQuery("#voornaamBestuurder").val() == "")
 	{
@@ -267,9 +265,7 @@ function foutBijVoornaam(zichtbaar){
                     //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#voornaamBestuurder").after("<br /><span class='foutmelding'>Gelieve een voornaam in te vullen.</span><br />");
                     jQuery("#voornaamBestuurder").addClass("foutveld");
-                    jQuery("#voornaamBestuurder").focus();
-                    
-                }
+                    }
     //verwijdert foutmelding en ontkleurt inputveld 
     if (!zichtbaar && jQuery("#voornaamBestuurder.foutveld").length != 0) {
                     jQuery("#voornaamBestuurder").next().remove(); //verwijdert de eerste br tag
@@ -295,9 +291,7 @@ function foutBijNaam(zichtbaar){
                     //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#naamBestuurder").after("<br /><span class='foutmelding'>Gelieve een naam in te vullen.</span><br />");
                     jQuery("#naamBestuurder").addClass("foutveld");
-                    jQuery("#naamBestuurder").focus();
-                    
-                }
+                    }
                 //verwijdert foutmelding en ontkleurt inputveld
     if (!zichtbaar && jQuery("#naamBestuurder.foutveld").length != 0) {
                     jQuery("#naamBestuurder").next().remove(); //verwijdert de eerste br tag
@@ -325,8 +319,9 @@ function validateBestuurderForm() {
 
 
 
-
+///////////////////////////////////////
 //validatie functies tbv contactpersoon
+//////////////////////////////////////
 function controleerCPVoornaam() {
 	if(jQuery("#voornaamContactPersoon").val() == "")
 	{
@@ -343,9 +338,7 @@ function foutBijCPVoornaam(zichtbaar){
                     //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#voornaamContactPersoon").after("<br /><span class='foutmelding'>Gelieve een voornaam in te vullen.</span><br />");
                     jQuery("#voornaamContactPersoon").addClass("foutveld");
-                    jQuery("#voornaamContactPersoon").focus();
-                    
-                }
+                    }
     //verwijdert foutmelding en ontkleurt inputveld 
     if (!zichtbaar && jQuery("#voornaamContactPersoon.foutveld").length != 0) {
                     jQuery("#voornaamContactPersoon").next().remove(); //verwijdert de eerste br tag
@@ -371,9 +364,7 @@ function foutBijCPNaam(zichtbaar){
                     //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#naamContactPersoon").after("<br /><span class='foutmelding'>Gelieve een naam in te vullen.</span><br />");
                     jQuery("#naamContactPersoon").addClass("foutveld");
-                    jQuery("#naamContactPersoon").focus();
-                    
-                }
+                    }
                 //verwijdert foutmelding en ontkleurt inputveld
     if (!zichtbaar && jQuery("#naamContactPersoon.foutveld").length != 0) {
                     jQuery("#naamContactPersoon").next().remove(); //verwijdert de eerste br tag
@@ -398,9 +389,7 @@ function foutBijContact(zichtbaar){
                     //plaatst rode foutmelding en kleurt inputveld geel
                     jQuery("#telContactPersoon").after("<br /><span class='foutmelding'>Gelieve een e-mail adres, GSM-nummer of telefoonnummer op te geven.</span><br />");
                     jQuery("#telContactPersoon").addClass("foutveld");
-                    jQuery("#telContactPersoon").focus();
-                    
-                }
+                    }
     //verwijdert foutmelding en ontkleurt inputveld
     if (!zichtbaar && jQuery("#telContactPersoon.foutveld").length != 0) {
                     jQuery("#telContactPersoon").next().remove(); //verwijdert de eerste br tag
@@ -426,14 +415,11 @@ function validateContactPersoonForm() {
      {
      	return true;
      }
-     
-     
-     
 }
 
 jQuery(document).ready(function () {
-	//1. wat we doen tab
-	//1.0 aangepast organisatie formulier tonen bij laden
+	//1. profiel tab
+	//1.0. aangepast profiel formulier tonen bij laden
 	var tmp = jQuery("#idOrganisatie").val();
 	if(tmp == "")
 	{
@@ -444,6 +430,7 @@ jQuery(document).ready(function () {
 		jQuery("#btnOrganisatieSave").hide();
 		jQuery("#btnOrganisatieCancel").hide();
 	}
+	
 	//1.1. validatie beschrijving
     jQuery("#beschrijvingOrganisatie").change(function () {
     var correctBeschrijving = controleerBeschrijving();
@@ -481,12 +468,17 @@ jQuery(document).ready(function () {
         }
     });
 	    
-    //1.6. opslaan bestuurder data 
+    //1.6. opslaan profiel data 
     jQuery('#btnOrganisatieSave').click(function(){
     	opslaanOrganisatie();
     });
     
-    //1.7. wijzigen bestuurder data 
+    //1.7. cancelen profiel data 
+    jQuery('#btnOrganisatieCancel').click(function(){
+    	formOrganisatieLedigen();
+    });
+    
+    //1.8. wijzigen profiel data 
     jQuery('#btnOrganisatieUpdate').click(function(){
     	wijzigenOrganisatie();
     });
@@ -497,10 +489,18 @@ jQuery(document).ready(function () {
    
     //2.2. aangepast bestuurderformulier tonen, bestuur verbergen
     jQuery("#bestuurderBtn").click(function(){
-    	jQuery("#overzichtBestuurders").hide();
-   		jQuery("#bestuurderFormulier").show();
-   		jQuery("#btnBestuurderUpdate").hide();
-   		return false;	
+    	if(jQuery('#idOrganisatie').val() == ''){
+    		alert('Gelieve eerst het profiel van uw organisatie toe te voegen.');
+    		return false;
+    	}
+    	else
+    	{
+    		jQuery("#overzichtBestuurders").hide();
+   			jQuery("#bestuurderFormulier").show();
+   			jQuery("#btnBestuurderUpdate").hide();
+   			return false;
+    	}
+    		
     });
     
     //2.3. terug naar bestuur
@@ -517,7 +517,7 @@ jQuery(document).ready(function () {
     //2.4. opslaan nieuwe bestuurder data 
     jQuery('#btnBestuurderSave').click(function(){
     	opslaanBestuurder();
-    });//einde click btnBestuurderSave
+    });
     
     //2.5. bestuurderformulier editeren, bestuur verbergen
     jQuery("#bestuurdersTabel").on('click','button.btnedit',editeerBestuurder);
@@ -530,18 +530,28 @@ jQuery(document).ready(function () {
     //2.7. bestuurder wissen
     jQuery("#bestuurdersTabel").on('click','button.btndelete',verwijderBestuurder);
     
-    
+    //2.8. cancelen bestuurder data
+    jQuery("#btnBestuurderCancel").click(function(){
+    	formBestuurderLedigen();
+    });
     
     //3. contacttab
     //3.1. contactpersoon formulier verbergen bij laden
     jQuery("#contactPersoonFormulier").hide();  
    
-    //3.2. aangepast contactpersoon formulier tonen, contact verbergen
+    //3.2. aangepast leeg contactpersoon formulier tonen, contact verbergen
     jQuery("#cpBtn").click(function(){
+    	if(jQuery('#idOrganisatie').val() == ''){
+    		alert('Gelieve eerst het profiel van uw organisatie toe te voegen.');
+    		return false;
+    	}
+    	else
+    	{
     	jQuery("#overzichtContact").hide();
    		jQuery("#contactPersoonFormulier").show();
    		jQuery("#btnContactPersoonUpdate").hide();
    		return false;	
+   		}
     });
     
     //3.3. terug naar contact
@@ -549,30 +559,32 @@ jQuery(document).ready(function () {
    		jQuery("#overzichtContact").show();
    		jQuery("#contactPersoonFormulier").hide();
    		jQuery("#rodebalk5 strong").text('Contactpersoon toevoegen');
-   		jQuery("#btnContactPersoonUpdate").show();
    		jQuery("#btnContactPersoonSave").show();
+   		jQuery("#btnContactPersoonCancel").show();
+   		jQuery("#btnContactPersoonUpdate").show();
    		formContactPersoonLedigen();
    		//return false;	
     });
     
-    //3.4. opslaan nieuwe bestuurder data 
+    //3.4. opslaan nieuwe cp data 
     jQuery('#btnContactPersoonSave').click(function(){
     	opslaanContactPersoon();
     });
     
-    //3.5. bestuurderformulier editeren, bestuur verbergen
+    //3.5. contactpersoon formulier editeren, contact verbergen
     jQuery("#contactTabel").on('click','button.btnedit',editeerContactPersoon);
             
-    //3.6. bestuurder wijzigen
+    //3.6. contactpersoon wijzigen
     jQuery('#btnContactPersoonUpdate').click(function(){
     	wijzigenContactPersoon();
     });
     
-    //3.7. bestuurder wissen
+    //3.7. cp wissen
     jQuery("#contactTabel").on('click','button.btndelete',verwijderContactPersoon);
-    
+        
     //3.8. contactpersoon form invullen met bestuurslid
     jQuery('#bestContactPersoon').change(function(){
+    	
     	var bestuurderId = jQuery('#bestContactPersoon option:selected').val();
     	//alert(bestuurderId);
     	if(bestuurderId != 0 ) //bestuurslid gekozen
@@ -606,28 +618,49 @@ jQuery(document).ready(function () {
         }
      });//einde change event
      
+     //3.9.contacpersoon formulier ledigen
+     jQuery('#btnContactPersoonCancel').click(function(){
+    	formContactPersoonLedigen();
+     });
+     
      //4.logo tab
-     //4.1. opslaan nieuw logo  
-     
-     //jQuery('#btnOrganisatieFotoSave').click(function(){
-     //	opslaanLogo();
-     //});
-    
-     //4.2. logo wissen
-     jQuery("img[id*='deleteIcon']").click(function(){
-     	var iconid = jQuery(this).attr("id"); 
-		var afbeeldingId = iconid.substring(10);
-		wissenLogo(afbeeldingId);
-    });
-     
-     
-        
-             
+     //4.1. nagaan of er reeds een profiel is toegevoegd
+     jQuery('#btnOrganisatieFotoSave,#btnOrganisatieFotoCancel').click(function(){
+    	if(jQuery('#idOrganisatie').val() == ''){
+    		alert('Gelieve eerst het profiel van uw organisatie toe te voegen.');
+    		return false;	
+    	}
+     });
 });             //einde ready event
 
 ////////////////////////////////////////////////////
 // Ajax organisatie
 ///////////////////////////////////////////////////
+function formOrganisatieLedigen()
+{
+	alert('cancel');
+    jQuery("#naamOrganisatie").attr('value', '');
+	jQuery("#locatieOrganisatie").attr('value', '');
+	jQuery("#beschrijvingOrganisatie").attr('value', '');
+	jQuery("#omschrijvingOrganisatie").val('');
+	jQuery("#werkingsGebiedOrganisatie").attr('value', '');
+    jQuery("#websiteOrganisatie").attr('value', '');
+	jQuery("#facebookOrganisatie").attr('value', '');
+	jQuery("#rvOrganisatie").val('');
+	jQuery("#idOrganisatie").attr('value', '');
+	jQuery(".uniform_sec").prop('checked', false);
+	jQuery(".uniform_sec").prop('disabled', false);
+	//eventuele foutmeldingen verwijderen
+	foutBijNaamOrganisatie(false);
+	foutBijOmschrijving1(false);
+	foutBijBeschrijving(false);
+	foutBijWebsite(false);
+	foutBijFacebook(false);
+	foutBijJuridischeVorm(false);
+	foutBijSectoren1(false);
+	
+}
+
 function OrganisatieInvullen(ar){
 //alert('bij invullen');
 jQuery("#naamOrganisatie").attr('value', ar[0].verNaam);
@@ -639,7 +672,7 @@ jQuery("#websiteOrganisatie").attr('value', ar[0].verWebsite);
 jQuery("#facebookOrganisatie").attr('value', ar[0].verFacebook);
 jQuery("#rvOrganisatie").val(ar[0].rvID);
 jQuery("#idOrganisatie").val(ar[0].verID);
-jQuery("#wpUserID").val(ar[0].verWPUserID);
+//jQuery("#wpUserID").val(ar[0].verWPUserID);
 
 //JSON object inkijken
                     	
@@ -668,7 +701,7 @@ jQuery("#wpUserID").val(ar[0].verWPUserID);
 
 
 function opslaanOrganisatie(){
-	//alert('bij opslaan');
+	alert('bij opslaan');
 	var valid = minimumValidatieOrganisatie();
     	if(valid == false) {
     		return false;
@@ -702,29 +735,30 @@ function opslaanOrganisatie(){
     var sector3Id = sectorIds[2];
     //alert(sector3Id);
     
-    var wpUserId = jQuery("#wpUserID").val();
+    //var wpUserId = jQuery("#wpUserID").val();
     //alert(wpUserId);
-    	
     	
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
-             	//alert(xmlhttp.readyState);
-               	//alert(xmlhttp.status);
+             	alert(xmlhttp.readyState);
+               	alert(xmlhttp.status);
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     	alert(xmlhttp.responseText);//responseText is een string van een JSON object. Deze staat niet tussen single of dubbele quotes.
                     	var ar = JSON.parse(xmlhttp.responseText); //ar is een array van een aantal JSON objecten
                     	OrganisatieInvullen(ar);
-                    	jQuery("#rodebalk1 strong").text('Organisatie wijzigen');
+                    	jQuery("#rodebalk1 strong").text('Profiel van uw organisatie wijzigen');
                     	jQuery("#btnOrganisatieSave").hide();
                     	jQuery("#btnOrganisatieCancel").hide();
                     	jQuery("#btnOrganisatieUpdate").show();
-                                               
+                                                                  
                     }
         	};
               
-   xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/organisatie.ajax.php?action=add&naam=" + naam + "&locatie=" + locatie + "&beschrijving=" + beschrijving + "&omschrijving=" + omschrijving + "&website=" + website + "&facebook=" + facebook + "&rvid=" + rvId + "&wpuserid=" + wpUserId + "&sector1id=" + sector1Id + "&sector2id=" + sector2Id + "&sector3id=" + sector3Id, true); 
+   xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/organisatie.ajax.php?action=add&naam=" + naam + "&locatie=" + locatie + "&beschrijving=" + beschrijving + "&omschrijving=" + omschrijving + "&website=" + website + "&facebook=" + facebook + "&rvid=" + rvId + "&sector1id=" + sector1Id + "&sector2id=" + sector2Id + "&sector3id=" + sector3Id, true); 
+   //xmlhttp.onload = function () {
+   //	alert('Het profiel van uw organisatie is succesvol opgeslagen.');
+   //};
    xmlhttp.send();	
-    
 }
 
 function wijzigenOrganisatie(){
@@ -762,10 +796,11 @@ function wijzigenOrganisatie(){
     var sector3Id = sectorIds[2];
     //alert(sector3Id);
     
-    var wpUserId = jQuery("#wpUserID").val();
+    //var wpUserId = jQuery("#wpUserID").val();
     //alert(wpUserId);
     var orgId = jQuery("#idOrganisatie").val();	
     //alert('orgid: ' + orgId);
+    
     	
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -775,26 +810,27 @@ function wijzigenOrganisatie(){
                     	//alert(xmlhttp.responseText);//responseText is een string van een JSON object. Deze staat niet tussen single of dubbele quotes.
                     	var ar = JSON.parse(xmlhttp.responseText); //ar is een array van een aantal JSON objecten
                     	OrganisatieInvullen(ar);
-                    	                                               
-                    }
+                }
         	};
               
-   xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/organisatie.ajax.php?action=update&naam=" + naam + "&locatie=" + locatie + "&beschrijving=" + beschrijving + "&omschrijving=" + omschrijving + "&website=" + website + "&facebook=" + facebook + "&rvid=" + rvId + "&wpuserid=" + wpUserId + "&orgid=" + orgId + "&sector1id=" + sector1Id + "&sector2id=" + sector2Id + "&sector3id=" + sector3Id, true); 
+   xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/organisatie.ajax.php?action=update&naam=" + naam + "&locatie=" + locatie + "&beschrijving=" + beschrijving + "&omschrijving=" + omschrijving + "&website=" + website + "&facebook=" + facebook + "&rvid=" + rvId + "&orgid=" + orgId + "&sector1id=" + sector1Id + "&sector2id=" + sector2Id + "&sector3id=" + sector3Id, true); 
+   xmlhttp.onload = function () {
+  	alert('Het profiel van uw organisatie is succesvol gewijzigd.');
+   };
    xmlhttp.send();	
-    
+   
 }
 
 ////////////////////////////////////////////////////
 //CRUD Ajax Bestuurder
 ///////////////////////////////////////////////////
 
-
 function tableCreate(response) {
 				//alert('table create');
                 //jQuery("#bestuurdersTabel thead").empty();
                 jQuery("#bestuurdersTabel tbody").empty();
                 if (response.length == 0) {
-                    jQuery("#bestuurdersTabel tbody").append("<tr><th>Geen bestuurders</th></tr>");
+                    jQuery("#bestuurdersTabel tbody").append("<tr><td colspan='5'>Geen bestuurders</td></tr>");
                 }
                 else {
                     //jQuery("#bestuurdersTabel tbody").append("<tr><th class='Id'>Nr</th><th>Titel</th><th class='Auteur'>Auteur</th><th class='Type'>Document Type</th><th class='Prijs'>Prijs (€)</th><th class='Actie'>Koop</th></tr>");
@@ -854,7 +890,7 @@ function tableCreate(response) {
                         //alert(btnedit);
                         var btndelete = "bestBtnDelete" + bestId;
                         //alert(btndelete);
-                        jQuery("#bestuurdersTabel tbody").append("<tr><td class='sh_bestvoornaam'>" + voornaam + "</td><td class='sh_bestnaam'>" + naam + "</td><td class='sh_bestfunctie'>" + funcNaam + "</td><td class='sh_bestemail'>" + email + "</td><td class='sh_actie'><button id='" + btnedit + "' class='btnedit' title='edit'>Editeer</button><button id='" + btndelete + "' class='btndelete' title='delete'>Wis</button></td></tr>");
+                        jQuery("#bestuurdersTabel tbody").append("<tr><td class='sh_bestvoornaam'>" + voornaam + "</td><td class='sh_bestnaam'>" + naam + "</td><td class='sh_bestfunctie'>" + funcNaam + "</td><td class='sh_bestemail'>" + email + "</td><td class='sh_actie'><button id='" + btnedit + "' class='btnedit' title='bestuurder editeren'>Editeer</button><button id='" + btndelete + "' class='btndelete' title='bestuurder wissen'>Wis</button></td></tr>");
                     }
                 } //einde else
                 //alert('einde table create');
@@ -917,10 +953,9 @@ function editeerBestuurder(){
                         */
                        jQuery("#rodebalk3 strong").text('Bestuurder wijzigen');
 					   jQuery("#btnBestuurderSave").hide();
+					   jQuery("#btnBestuurderCancel").hide();
                        formBestuurderInvullen(ar);
-                        
-                        
-                    }
+                       }
         	};
               
         xmlhttp1.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/bestuurder.ajax.php?action=edit&bestuurderid=" + bestuurderId, true); 
@@ -942,22 +977,19 @@ function verwijderBestuurder(){
         			if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
                  		//alert(xmlhttp2.responseText);
                     	var ar = JSON.parse(xmlhttp2.responseText); 
-                    	
                     	tableCreate(ar);
-                    
                     }//einde if
         			};//einde fc
               
          			xmlhttp2.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/bestuurder.ajax.php?action=delete&bestid=" + bestuurderId, true); 
-         			xmlhttp2.send();//noodzaakt get methode	return false; //to prevent window.location.href is assigned badly;
+         			xmlhttp2.send();
         }//einde confirm
-                
-		
+              
 }
 
 function opslaanBestuurder(){
-		alert('bij opslaan');
-    	var valid = validateContactPersoonForm();
+		//alert('bij opslaan');
+    	var valid = validateBestuurderForm();
     	if(valid == false) {
     		return false;
     	}
@@ -977,7 +1009,7 @@ function opslaanBestuurder(){
     	//alert(tel);
     	var cvId = jQuery('#cvBestuurder option:selected').val();
     	//alert(cvId);
-    	var verId = jQuery("#idVereniging").val();
+    	var verId = jQuery("#idOrganisatie").val();
     	//alert(verId);
     	
     	
@@ -997,12 +1029,15 @@ function opslaanBestuurder(){
                         tableCreate(ar);
                         jQuery("#btnBestuurderUpdate").show();
                         formBestuurderLedigen();
+                        
                     }
         	};
               
          xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/bestuurder.ajax.php?action=add&funcid=" + funcId + "&voornaam=" + voornaam + "&naam=" + naam + "&info=" + info + "&email=" + email + "&gsm=" + gsm + "&tel=" + tel + "&cvid=" + cvId + "&verid=" + verId, true); 
+         xmlhttp.onload = function () {
+  	     alert('De bestuurder is succesvol opgeslagen.');
+         };
          xmlhttp.send();//noodzaakt get methode	
-        
 }
 
 function wijzigenBestuurder()
@@ -1028,7 +1063,7 @@ function wijzigenBestuurder()
     	//alert(tel);
     	var cvId = jQuery('#cvBestuurder option:selected').val();
     	//alert(cvId);
-    	var verId = jQuery("#idVereniging").val();
+    	var verId = jQuery("#idOrganisatie").val();
     	//alert(verId);
     	var bestId = jQuery("#idBestuurder").val();
     	//alert('bestid: ' + bestId);
@@ -1050,12 +1085,22 @@ function wijzigenBestuurder()
                         tableCreate(ar);
                         jQuery("#rodebalk3 strong").text('Bestuurder toevoegen');
                         jQuery("#btnBestuurderSave").show();
+                        jQuery("#btnBestuurderCancel").show();
                         formBestuurderLedigen();
+                        
                     }
         	};
               
          xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/bestuurder.ajax.php?action=update&bestid=" + bestId + "&funcid=" + funcId + "&voornaam=" + voornaam + "&naam=" + naam + "&info=" + info + "&email=" + email + "&gsm=" + gsm + "&tel=" + tel + "&cvid=" + cvId + "&verid=" + verId, true); 
-         xmlhttp.send();//noodzaakt get methode		
+         xmlhttp.onload = function () {
+           //jQuery("#overzichtBestuurders").show();
+   		   //jQuery("#bestuurderFormulier").hide(); 	
+  	       alert('De bestuurder is succesvol gewijzigd.');
+         };
+         xmlhttp.onerror = function(){
+         	alert('Er is een fout');
+         };
+         xmlhttp.send();//noodzaakt get methode	
 }
 
 ////////////////////////////////////////////////////
@@ -1151,7 +1196,7 @@ function tableCreate1(response) {
                         	}
                         }
                         
-                        jQuery("#contactTabel tbody").append("<tr><td class='sh_contvoornaam'>" + voornaam + "</td><td class='sh_contnaam'>" + naam + "<td class='sh_contwijze'>" + wijze + "</td><td class='sh_actie'><button id='" + btnedit + "' class='btnedit' title='edit'>Editeer</button><button id='" + btndelete + "' class='btndelete' title='delete'>Wis</button></td></tr>");
+                        jQuery("#contactTabel tbody").append("<tr><td class='sh_contvoornaam'>" + voornaam + "</td><td class='sh_contnaam'>" + naam + "<td class='sh_contwijze'>" + wijze + "</td><td class='sh_actie'><button id='" + btnedit + "' class='btnedit' title='contactpersoon editeren'>Editeer</button><button id='" + btndelete + "' class='btndelete' title='contactpersoon wissen'>Wis</button></td></tr>");
                     }
                 } //einde else
                 //alert('einde table create1');
@@ -1205,6 +1250,7 @@ function editeerContactPersoon(){
                        var ar = JSON.parse(xmlhttp1.responseText); //ar is een JSON object
                        jQuery("#rodebalk5 strong").text('Contactpersoon wijzigen');
 					   jQuery("#btnContactPersoonSave").hide();
+					   jQuery("#btnContactPersoonCancel").hide();
 					   formContactPersoonInvullen(ar);
                        }
         	};
@@ -1224,27 +1270,27 @@ function verwijderContactPersoon(){
    					var cpId = btnid.substring(13);
   					
   					var xmlhttp2 = new XMLHttpRequest();
-					alert(xmlhttp2);
+					//alert(xmlhttp2);
         			xmlhttp2.onreadystatechange = function () {
-        			alert(xmlhttp2.readyState);
-        			alert(xmlhttp2.status);
+        			//alert(xmlhttp2.readyState);
+        			//alert(xmlhttp2.status);
         			if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
-                 		alert(xmlhttp2.responseText);
+                 		//alert(xmlhttp2.responseText);
                     	var ar = JSON.parse(xmlhttp2.responseText); 
-                    	
                     	tableCreate1(ar);
-                    
+                    	 
                     }//einde if
         			};//einde fc
               
          			xmlhttp2.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/contactpersoon.ajax.php?action=delete&contid=" + cpId, true); 
          			xmlhttp2.send();
         }//einde confirm
-    jQuery("#cpactionsdiv").show();  
+    jQuery("#cpactionsdiv").show(); 
+    
 }
 
 function opslaanContactPersoon(){
-	alert('bij opslaan');
+	//alert('bij opslaan');
 	var valid = validateContactPersoonForm();
     if(valid == false) {
         return false;
@@ -1264,7 +1310,7 @@ function opslaanContactPersoon(){
     	//alert(tel);
     	var cvId = jQuery('#cvContactPersoon option:selected').val();
     	//alert(cvId);
-    	var verId = jQuery("#idVereniging").val();
+    	var verId = jQuery("#idOrganisatie").val();
     	//alert(verId);
     	
     	
@@ -1284,14 +1330,17 @@ function opslaanContactPersoon(){
                         tableCreate1(ar);
                         jQuery("#btnContactPersoonUpdate").show();
                         formContactPersoonLedigen();
-                        alert('hiding actiediv');
                         jQuery("#cpactionsdiv").hide();
+                       
                     }
         	};
               
          xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/contactpersoon.ajax.php?action=add&voornaam=" + voornaam + "&naam=" + naam + "&info=" + info + "&email=" + email + "&gsm=" + gsm + "&tel=" + tel + "&cvid=" + cvId + "&verid=" + verId, true); 
+         xmlhttp.onload = function () {
+  	     alert('De contactpersoon is succesvol opgeslagen.');
+         };
          xmlhttp.send();//noodzaakt get methode	
-        
+         return true;
 }
 
 function wijzigenContactPersoon(){
@@ -1315,7 +1364,7 @@ function wijzigenContactPersoon(){
     	//alert(tel);
     	var cvId = jQuery('#cvContactPersoon option:selected').val();
     	//alert(cvId);
-    	var verId = jQuery("#idVereniging").val();
+    	var verId = jQuery("#idOrganisatie").val();
     	//alert(verId);
     	var contId = jQuery("#idContactPersoon").val();
     	//alert('contid: ' + contId);
@@ -1331,62 +1380,35 @@ function wijzigenContactPersoon(){
                     	tableCreate1(ar);
                         jQuery("#rodebalk5 strong").text('Contactpersoon toevoegen');
                         jQuery("#btnContactPersoonSave").show();
+                        jQuery("#btnContactPersoonCancel").show();
                         formContactPersoonLedigen();
-                        alert('hiding actiediv');
                         jQuery("#cpactionsdiv").hide();
-                    }
+                        }
         	};
               
          xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/contactpersoon.ajax.php?action=update&contid=" + contId + "&voornaam=" + voornaam + "&naam=" + naam + "&info=" + info + "&email=" + email + "&gsm=" + gsm + "&tel=" + tel + "&cvid=" + cvId + "&verid=" + verId, true); 
+         xmlhttp.onload = function () {
+  	     alert('De bestuurder is succesvol gewijzigd.');
+         };
          xmlhttp.send();//noodzaakt get methode	
+         return true;
 }
+
+
 
 ////////////////////////////////////////////////////
-//Ajax logo
+//logo
 ///////////////////////////////////////////////////
-function opslaanLogo() {
-var fotoPad = jQuery('#fileToUpload').val();
-var fotoNaam = fotoPad.substring(12);
-alert(fotoNaam);
-var orgId = jQuery('#idOrganisatie').val();
-alert(orgId);
-
-var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-             	alert(xmlhttp.readyState);
-               	alert(xmlhttp.status);
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    	alert(xmlhttp.responseText);
-                    	var ar = JSON.parse(xmlhttp.responseText); //ar is een array van een aantal JSON objecten
-                    	alert(ar);
-                    	
-                    }
-        	};
-              
-         xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/foto.ajax.php?action=add&fotonaam=" + fotoNaam + "&orgid=" + orgId, true); 
-         xmlhttp.send();
-}
-
-
-
-function wissenLogo(afbeeldingId){
-alert('bij wissen');
-var orgId = jQuery('#idOrganisatie').val();
-alert(orgId);
-
-var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-             	alert(xmlhttp.readyState);
-               	alert(xmlhttp.status);
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    	alert(xmlhttp.responseText);
-                    	
-                    	
-                    }
-        	};
-              
-         xmlhttp.open("GET", "http://localhost:8080/sociaalhuis/wp-content/plugins/tieltvrijwilligt/appcode/control/ajax/foto.ajax.php?action=delete&fotoid=" + afbeeldingId + "&orgid=" + orgId, true); 
-         xmlhttp.send();
+function askDeletion(){
+var r = confirm("Bent u zeker om deze foto/logo te verwijderen?");
+        if(r == true)
+        {
+            return true;           
+        }
+        else
+        {
+        	return false;
+        }
+        
 }	
-
 

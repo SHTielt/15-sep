@@ -8,7 +8,6 @@ require_once RS_PLUGIN_PATH.'appcode/helpers/feedback.class.php';
 require_once RS_PLUGIN_PATH.'appcode/helpers/base.class.php';
 require_once RS_PLUGIN_PATH.'appcode/model/bestuurder.class.php';
 require_once RS_PLUGIN_PATH.'appcode/model/functie.class.php';
-//require_once RS_WEBSITE_PATH.'wp-load.php'; gaat niet in ajax
 
 //bestuurder wissen
 if ($_GET['action'] == "delete")
@@ -208,10 +207,4 @@ if($_GET['action'] == "update")
 		echo "niet gelukt";
 	}
 }
-
-
-
-
-
-
 ?>

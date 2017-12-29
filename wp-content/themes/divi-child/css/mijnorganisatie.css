@@ -1,3 +1,7 @@
+div.et_pb_row {
+	padding-bottom: 0;
+}
+
 .btnedit {
 	width: 50%;
 	padding: 0 3%;
@@ -9,27 +13,62 @@
 	margin-left: 1%;
 }
 
-.sh_bestvoornaam {
+/*bestuurderstabel*/
+.entry-content .sh_bestvoornaam {
 	width: 16%;
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
-.sh_bestnaam {
-	width: 16%;
+.entry-content .sh_bestnaam {
+	width: 20%;
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
-.sh_bestfunctie {
-	width: 30%;
-}
-
-.sh_bestemail {
+.entry-content .sh_bestfunctie {
 	width: 22%;
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
-.sh_actie {
-	width: 16%;
+.entry-content .sh_bestemail {
+	width: 22%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_actie {
+	width: 20%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/*Som: 100%*/
+
+div.entry-content tr td {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/*contactabel*/
+.entry-content .sh_contvoornaam {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_contnaam {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.entry-content .sh_contwijze {
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
 
+/*fotoformulier*/
 #fotoForm .controls {
 	width: 80%;
 	margin: 0 auto;
@@ -48,3 +87,147 @@
 	background-image: url('http://localhost:8080/sociaalhuis/wp-content/themes/divi-child/icons/delete.jpg');
 }
 
+/*DEFAULT SCREENS and TABLETS in LANDSCAPE*/
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+	
+	.entry-content .sh_actie {
+	padding-left: 6px;
+	padding-right: 6px;
+    }
+    
+    .btnedit {
+	width: 60%;
+	padding: 0 1%;
+    }
+
+   .btndelete {
+	width: 35%;
+	padding: 0 1%;
+	margin-left: 0;
+	}
+
+} 
+/*end DEFAULTS SCREENS and TABLETS in LANDSCAPE*/
+
+
+
+/*SMARTPHONES and TABLETS in PORTRAIT*/
+
+@media screen and (max-width: 767px) {
+	/*bestuurderstabel*/
+	/*1. Force table to not be like table anymore */
+	#bestuurdersTabel * {
+		display: block;
+	}
+	
+	/* 2. rijen onderscheiden*/
+	table#bestuurdersTabel tbody tr {
+		 border: 1px solid #ccc;
+		 max-width: none;//override Divi
+	}
+	
+	/*3. cellen onderscheiden*/
+	table#bestuurdersTabel tbody td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		max-width: none;
+		padding-left: 45%;
+		min-height: 48.18px;
+	}
+	
+	/* 4. Hide table headers (but not display: none;, for accessibility) */
+	#bestuurdersTabel thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+		
+	/*5. ruimte voor cel laten gedragen als table head*/
+    table#bestuurdersTabel td:before { 
+		position: absolute;
+        left: 45px;
+        width: 25%;
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+	
+	/*6. nieuwe labels voorzien*/
+	#bestuurdersTabel td:nth-of-type(1):before { content: "Voornaam"; }
+    #bestuurdersTabel td:nth-of-type(2):before { content: "Naam"; }
+    #bestuurdersTabel td:nth-of-type(3):before { content: "Functie"; }
+    #bestuurdersTabel td:nth-of-type(4):before { content: "E-mail adres"; }
+	#bestuurdersTabel td:nth-of-type(5):before { content: "Actie"; }
+	
+	
+	/*7. knoppen aanpassen*/
+	.entry-content .sh_actie {
+		width: auto;
+	}
+	
+	#bestuurdersTabel button.btnedit, #bestuurdersTabel button.btndelete {
+		display: inline-block;
+	}
+	
+	/*Contacttabel*/
+	/*1. omzetten in block elemenetn*/
+	#contactTabel * {
+		display: block;
+	}
+	
+	/* 2. rijen onderscheiden*/
+	table#contactTabel tbody tr {
+		 border: 1px solid #ccc;
+		 max-width: none;//override Divi
+	}
+	
+	/*3. cellen onderscheiden*/
+	table#contactTabel tbody td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		max-width: none;
+		padding-left: 45%;
+		min-height: 48.18px;
+	}
+	
+	/* 4. Hide table headers (but not display: none;, for accessibility) */
+	#contactTabel thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	/*5. ruimte voor cel laten gedragen als table head*/
+    table#contactTabel td:before { 
+		position: absolute;
+        left: 45px;
+        width: 25%;
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+    
+    /*6. nieuwe labels voorzien*/
+	#contactTabel td:nth-of-type(1):before { content: "Voornaam"; }
+    #contactTabel td:nth-of-type(2):before { content: "Naam"; }
+    #contactTabel td:nth-of-type(3):before { content: "Contact"; }
+    #contactTabel td:nth-of-type(4):before { content: "Actie"; }
+	
+	/*7. knoppen aanpassen*/
+	
+	#contactTabel button.btnedit, #contactTabel button.btndelete {
+		display: inline-block;
+	}
+} 
+
+/*end SMARTPHONES and TABLETS in PORTRAIT*/
+
+
+
+/*SMALL SMARTPHONES*/
+
+@media screen and (max-width: 480px) {
+	
+	
+} 
+
+/*end SMALL SMARTPHONES*/

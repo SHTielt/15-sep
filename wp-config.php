@@ -82,11 +82,6 @@ define('WP_POST_REVISIONS',3);
 define('WP_MEMORY_LIMIT','128M');
 define('AUTOSAVE_INTERVAL',999999);
 
-/*
-if ( !defined('SH_PLUGIN_PATH') )
-	define('SH_PLUGIN_PATH', dirname(__FILE__) . '/wp-content/plugins/tieltvrijwilligt/');
-*/
-
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

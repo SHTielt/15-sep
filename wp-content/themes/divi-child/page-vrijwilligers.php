@@ -84,5 +84,4 @@ foreach($vrijwilligers as $vrijwilliger)
 </div> <!-- #content-area -->
 </div> <!-- .container -->
 </div> <!-- #main-content -->
-
 <?php get_footer(); ?>

@@ -6,13 +6,6 @@ Author: RE
 Version: 1.0
 */
 
-/*
-if (!defined('SH_ABS_PATH')) {
-define('SH_ABS_PATH','C:/wamp64/www/sociaalhuis/');
-}
- */
- 
-
 if (!defined('SH_PLUGIN_PATH')) {
     define('SH_PLUGIN_PATH', dirname(__FILE__).'/');  
 }
@@ -46,7 +39,7 @@ require_once SH_PLUGIN_PATH.'appcode/model/functie.class.php';
 
 
 //2. not needed: control files, because not called from scratch
-include(SH_PLUGIN_PATH.'appcode/control/functie.control.php');
+//include(SH_PLUGIN_PATH.'appcode/control/functie.control.php');
 
 /*3. You don't have to use session_start() on top of each page; instead you should add a function in init hook.*/
 function session_initialize() {
